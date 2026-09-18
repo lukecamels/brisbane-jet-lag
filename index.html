@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
 <meta name="theme-color" content="#14161c">
-<title>Brisbane Territory</title>
+<title>Brisbane Jet Lag</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -194,7 +194,7 @@
 <div id="app">
   <header class="topbar">
     <div class="score orange"><span class="n" id="scoreOrange">0</span> Orange</div>
-    <div class="brand">Brisbane<br>Territory</div>
+    <div class="brand">Brisbane<br>Jet Lag</div>
     <div class="score purple">Purple <span class="n" id="scorePurple">0</span></div>
   </header>
 
@@ -288,7 +288,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="config.js?v=3"></script>
+<script src="config.js?v=4"></script>
 <script src="regions.js?v=5"></script>
 <script>
 (function () {
@@ -384,6 +384,8 @@
     }
     return null;
   }
+  const NEUTRAL = new Set(CFG.neutralZones || []);
+  const isNeutral = (id) => NEUTRAL.has(id);
   const regionName = (id) => { const f = REGIONS.features.find((x) => x.properties.id === id); return f ? f.properties.name : id; };
 
   /* ================= Player ================= */
@@ -397,7 +399,8 @@
   L.control.zoom({ position: "bottomleft" }).addTo(map);
 
   const STYLE = {
-    none:   { color: "#4b5160", weight: 1.5, dashArray: "4 4", fillColor: "#8b919f", fillOpacity: 0.12 },
+    none:    { color: "#3a3f4b", weight: 1.5, dashArray: "4 4", fillColor: "#5b6170", fillOpacity: 0.32 },
+    neutral: { color: "#1f2229", weight: 2, dashArray: null, fillColor: "#2a2e38", fillOpacity: 0.6 },
     orange: { color: "#c4500e", weight: 2, dashArray: null, fillColor: "#f26b1d", fillOpacity: 0.45 },
     purple: { color: "#5a22b8", weight: 2, dashArray: null, fillColor: "#7b3fe4", fillOpacity: 0.45 },
   };
@@ -426,7 +429,7 @@
   function restyle() {
     let o = 0, p = 0;
     for (const f of REGIONS.features) {
-      const id = f.properties.id; const owner = (state.regions[id] || {}).owner || "none";
+      const id = f.properties.id; const owner = isNeutral(id) ? "neutral" : ((state.regions[id] || {}).owner || "none");
       if (owner === "orange") o++; if (owner === "purple") p++;
       const s = Object.assign({}, STYLE[owner] || STYLE.none);
       if (id === currentRegionId) { s.weight = 4; s.color = "#1e88ff"; s.dashArray = null; }
@@ -479,7 +482,7 @@
     currentRegionId = newId;
     restyle();
     renderStatus();
-    if (changed && newId && isTeam() && !state.regions[newId]) maybePrompt(newId);
+    if (changed && newId && isTeam() && !state.regions[newId] && !isNeutral(newId)) maybePrompt(newId);
     if (changed) promptedFor = null;
   }
   const isTeam = () => player && (player.team === "orange" || player.team === "purple");
@@ -503,6 +506,7 @@
       setStatus("Outside the game zone", "Head into one of the outlined suburbs.", ""); btn.hidden = true; return;
     }
     const name = regionName(currentRegionId); const rec = state.regions[currentRegionId];
+    if (isNeutral(currentRegionId)) { setStatus(name, "Neutral zone \u00b7 can't be claimed", ""); btn.hidden = true; return; }
     if (!rec) {
       setStatus(name, "Unclaimed", "");
       if (isTeam()) { btn.hidden = false; btn.className = "btn " + player.team; btn.textContent = "Claim"; btn.onclick = () => claim(currentRegionId); }
@@ -514,7 +518,7 @@
     }
   }
   async function claim(id) {
-    if (!isTeam()) return;
+    if (!isTeam() || isNeutral(id)) return;
     if (state.regions[id]) { toast(regionName(id) + " is already held by " + TEAM_LABEL[state.regions[id].owner]); return; }
     try { await store.setOwner(id, player.team, player.name || "", player.team); toast(regionName(id) + " claimed for " + TEAM_LABEL[player.team] + "!"); }
     catch (e) { toast("Couldn't save the claim. Check your connection and try again."); }
@@ -527,6 +531,7 @@
   function onRegionTap(id) {
     if (simMode) return; // while simulating, a tap on the map just places you
     const rec = state.regions[id]; const name = regionName(id);
+    if (isNeutral(id)) { layers[id].bindPopup('<div class="pop"><h4>' + esc(name) + '</h4><div class="own">Neutral zone &middot; can&#39;t be claimed</div></div>').openPopup(); return; }
     if (player && player.team === "admin") {
       editing = id; $("editorTitle").textContent = name;
       $("editorSub").textContent = rec ? "Held by " + TEAM_LABEL[rec.owner] + (rec.by ? " · claimed by " + rec.by : "") + " at " + fmtTime(rec.at) : "Currently unclaimed.";

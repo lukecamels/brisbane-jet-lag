@@ -6,6 +6,9 @@ window.GAME_CONFIG = {
   // Passcode players must enter to log in as admin. Set to "" to allow anyone.
   adminCode: "jetlag",
 
+  // Regions nobody can claim (shown in dark grey). Use the region ids from regions.js.
+  neutralZones: ["brisbane-city"],
+
   // Shared-state backend. Leave as null for single-device mode (claims stay on this phone only).
   // To share claims between everyone, paste the Firebase web-app config object here, e.g.
   // firebase: { apiKey: "...", authDomain: "...", databaseURL: "https://....firebasedatabase.app", projectId: "...", appId: "..." },
