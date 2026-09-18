@@ -288,8 +288,8 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="config.js"></script>
-<script src="regions.js"></script>
+<script src="config.js?v=3"></script>
+<script src="regions.js?v=3"></script>
 <script>
 (function () {
   "use strict";
@@ -412,9 +412,14 @@
       layer.on("click", () => onRegionTap(f.properties.id));
     },
   }).addTo(map);
-  const fitAll = () => { map.invalidateSize(); map.fitBounds(geo.getBounds(), { padding: [10, 10] }); };
-  setTimeout(fitAll, 0); window.addEventListener("load", fitAll);
-  window.addEventListener("resize", () => map.invalidateSize());
+  let fitted = false;
+  const fitAll = () => {
+    map.invalidateSize();
+    if (fitted || map.getSize().y < 50) return; // pane not laid out yet; try again later
+    map.fitBounds(geo.getBounds(), { padding: [10, 10] }); fitted = true;
+  };
+  [0, 300, 1500].forEach((t) => setTimeout(fitAll, t)); window.addEventListener("load", fitAll);
+  window.addEventListener("resize", fitAll);
   const updateLabelVis = () => document.getElementById("map").classList.toggle("labels-hidden", map.getZoom() < 13);
   map.on("zoomend", updateLabelVis); updateLabelVis();
 
