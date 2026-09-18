@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#14161c">
+<title>Brisbane Territory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root {
+    --bg: #14161c;
+    --panel: #1e212a;
+    --panel-2: #262a35;
+    --line: #343946;
+    --text: #f2f0ea;
+    --muted: #9aa0ad;
+    --orange: #f26b1d;
+    --orange-deep: #c4500e;
+    --purple: #7b3fe4;
+    --purple-deep: #5a22b8;
+    --neutral: #8b919f;
+    --gold: #e4c56a;
+    --danger: #e5484d;
+    --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    --body: "Barlow", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.4;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button { font: inherit; color: inherit; }
+  input { font: inherit; }
+  [hidden] { display: none !important; }
+
+  /* ---------- App shell ---------- */
+  #app { position: fixed; inset: 0; display: flex; flex-direction: column; }
+  .topbar {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch;
+    background: var(--panel); border-bottom: 1px solid var(--line);
+    padding-top: env(safe-area-inset-top, 0px);
+    z-index: 1000;
+  }
+  .score {
+    display: flex; align-items: center; gap: 10px; padding: 8px 14px;
+    font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; font-size: 15px;
+  }
+  .score .n { font-size: 30px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .score.orange { color: var(--orange); }
+  .score.purple { color: #a97cf5; justify-content: flex-end; }
+  .brand {
+    font-family: var(--display); font-weight: 800; font-size: 15px; line-height: 1; text-transform: uppercase;
+    letter-spacing: .12em; text-align: center; display: flex; align-items: center; padding: 8px 6px;
+    border-inline: 1px solid var(--line);
+  }
+  #map { flex: 1; background: #e7e4dc; }
+
+  /* ---------- Bottom sheet ---------- */
+  .sheet {
+    background: var(--panel); border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    display: flex; flex-direction: column; gap: 10px; z-index: 1000;
+  }
+  .who { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--muted); }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px;
+    font-family: var(--display); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; font-size: 13px; color: #fff;
+  }
+  .badge.orange { background: var(--orange-deep); }
+  .badge.purple { background: var(--purple-deep); }
+  .badge.admin { background: #5a4d1c; color: var(--gold); }
+  .linkbtn { background: none; border: 0; color: var(--muted); text-decoration: underline; padding: 0; cursor: pointer; }
+  .status { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .status .place { font-family: var(--display); font-weight: 800; font-size: 24px; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; text-wrap: balance; }
+  .status .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .status .sub.orange { color: var(--orange); }
+  .status .sub.purple { color: #a97cf5; }
+  .btn {
+    border: 0; border-radius: 10px; padding: 12px 18px; cursor: pointer; white-space: nowrap;
+    font-family: var(--display); font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: .05em;
+    background: var(--panel-2); color: var(--text);
+  }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn.orange { background: var(--orange); color: #1a0d05; }
+  .btn.purple { background: var(--purple); color: #fff; }
+  .btn.ghost { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+  .btn.danger { background: transparent; border: 1px solid var(--danger); color: var(--danger); }
+  .btn.small { padding: 8px 12px; font-size: 15px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* ---------- Floating map buttons ---------- */
+  .fab {
+    position: absolute; right: 12px; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--text); display: grid; place-items: center; cursor: pointer; z-index: 900;
+    box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  }
+  .fab svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .fab.active { color: var(--gold); border-color: var(--gold); }
+  #locateBtn { bottom: 12px; }
+  #feedBtn { bottom: 64px; }
+  .mapwrap { position: relative; flex: 1; display: flex; }
+  .mapwrap #map { flex: 1; }
+  .notice {
+    position: absolute; left: 12px; right: 68px; top: 12px; z-index: 900;
+    background: rgba(30,33,42,.94); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: 13px; color: var(--muted);
+  }
+  .notice b { color: var(--gold); font-weight: 600; }
+
+  /* ---------- Leaflet tweaks ---------- */
+  .leaflet-container { font-family: var(--body); }
+  .rlabel {
+    background: none; border: 0; box-shadow: none; padding: 0;
+    font-family: var(--display); font-weight: 800; font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
+    color: #2b2f3a; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff; text-align: center; white-space: normal; width: 90px; pointer-events: none;
+  }
+  .rlabel::before { display: none; }
+  .labels-hidden .rlabel { display: none; }
+  .leaflet-popup-content-wrapper { background: var(--panel); color: var(--text); border-radius: 12px; }
+  .leaflet-popup-tip { background: var(--panel); }
+  .leaflet-popup-content { margin: 12px 14px; }
+  .pop h4 { margin: 0 0 4px; font-family: var(--display); font-size: 20px; text-transform: uppercase; letter-spacing: .03em; }
+  .pop .own { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  .leaflet-control-attribution { font-size: 10px; }
+  .me-dot { width: 18px; height: 18px; border-radius: 50%; background: #1e88ff; border: 3px solid #fff; box-shadow: 0 0 0 2px rgba(30,136,255,.5), 0 2px 8px rgba(0,0,0,.4); }
+  .me-dot.sim { background: var(--gold); }
+
+  /* ---------- Overlays ---------- */
+  .overlay {
+    position: fixed; inset: 0; z-index: 2000; background: rgba(10,11,15,.78); backdrop-filter: blur(6px);
+    display: flex; align-items: flex-end; justify-content: center; padding: 16px;
+  }
+  @media (min-width: 600px) { .overlay { align-items: center; } }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 18px; width: 100%; max-width: 440px;
+    padding: 22px 20px calc(22px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .card h1 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: .95; text-transform: uppercase; letter-spacing: .02em; }
+  .card h1 small { display: block; font-size: 14px; letter-spacing: .18em; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+  .card h2 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; text-transform: uppercase; }
+  .card p { margin: 0; color: var(--muted); }
+  .card p strong { color: var(--text); }
+  .field label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 6px; }
+  .field input {
+    width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text);
+  }
+  .field input:focus { outline: 2px solid var(--gold); border-color: transparent; }
+  .teams { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .teambtn {
+    border: 0; border-radius: 14px; padding: 22px 12px; cursor: pointer; color: #fff;
+    font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; text-transform: uppercase; letter-spacing: .04em;
+  }
+  .teambtn small { display: block; font-size: 12px; letter-spacing: .16em; opacity: .8; margin-bottom: 6px; font-weight: 600; }
+  .teambtn.orange { background: linear-gradient(160deg, #ff8a3d, var(--orange-deep)); color: #1a0d05; }
+  .teambtn.purple { background: linear-gradient(160deg, #9b6bff, var(--purple-deep)); }
+  .teambtn.admin { grid-column: 1 / -1; background: var(--panel-2); color: var(--gold); padding: 14px; font-size: 20px; border: 1px solid var(--line); }
+  .teambtn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .err { color: var(--danger); font-size: 13px; }
+
+  /* ---------- Activity feed ---------- */
+  .feed { position: absolute; inset: 0; z-index: 950; background: var(--bg); display: flex; flex-direction: column; }
+  .feed header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .feed header h3 { margin: 0; font-family: var(--display); font-size: 22px; text-transform: uppercase; letter-spacing: .04em; }
+  .feed ul { list-style: none; margin: 0; padding: 8px 16px; overflow-y: auto; flex: 1; }
+  .feed li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .feed li time { color: var(--muted); font-size: 12px; min-width: 60px; padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .feed li .t-orange { color: var(--orange); font-weight: 600; }
+  .feed li .t-purple { color: #a97cf5; font-weight: 600; }
+  .feed li .t-admin { color: var(--gold); font-weight: 600; }
+  .feed .empty { color: var(--muted); padding: 24px 0; text-align: center; }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(150px + env(safe-area-inset-bottom, 0px));
+    background: var(--panel); border: 1px solid var(--line); color: var(--text); padding: 10px 16px; border-radius: 999px;
+    z-index: 1500; font-size: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.4); max-width: calc(100% - 32px); text-align: center;
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <div class="score orange"><span class="n" id="scoreOrange">0</span> Orange</div>
+    <div class="brand">Brisbane<br>Territory</div>
+    <div class="score purple">Purple <span class="n" id="scorePurple">0</span></div>
+  </header>
+
+  <div class="mapwrap">
+    <div id="map" role="application" aria-label="Game map"></div>
+    <div class="notice" id="notice" hidden></div>
+    <button class="fab" id="feedBtn" title="Activity" aria-label="Show activity">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <button class="fab" id="locateBtn" title="Centre on me" aria-label="Centre on my location">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>
+    </button>
+
+    <section class="feed" id="feed" hidden aria-label="Activity">
+      <header><h3>Activity</h3><button class="btn small ghost" id="feedClose">Close</button></header>
+      <ul id="feedList"></ul>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet">
+    <div class="who">
+      <span id="whoBadge" class="badge">—</span>
+      <span id="whoName"></span>
+      <button class="linkbtn" id="switchBtn">Switch</button>
+    </div>
+    <div class="status">
+      <div>
+        <div class="place" id="place">Share your location to play</div>
+        <div class="sub" id="sub">Your position is only used on this phone to work out which suburb you're in.</div>
+      </div>
+      <button class="btn" id="mainBtn">Locate me</button>
+    </div>
+    <div class="row" id="adminRow" hidden>
+      <button class="btn small ghost" id="simBtn">Simulate location</button>
+      <button class="btn small danger" id="resetBtn">Reset game</button>
+    </div>
+  </div>
+</div>
+
+<!-- Login -->
+<div class="overlay" id="login">
+  <div class="card">
+    <h1><small>Jet Lag · Brisbane</small>Pick your side</h1>
+    <div class="field">
+      <label for="nameInput">Your name (shown on claims)</label>
+      <input id="nameInput" type="text" placeholder="e.g. Luke" autocomplete="off" maxlength="24">
+    </div>
+    <div class="teams">
+      <button class="teambtn orange" data-team="orange"><small>Team</small>Orange</button>
+      <button class="teambtn purple" data-team="purple"><small>Team</small>Purple</button>
+      <button class="teambtn admin" data-team="admin">Admin</button>
+    </div>
+    <div class="field" id="codeField" hidden>
+      <label for="codeInput">Admin passcode</label>
+      <input id="codeInput" type="password" autocomplete="off">
+      <div class="err" id="codeErr" hidden>That passcode isn't right.</div>
+    </div>
+    <div class="row" id="codeRow" hidden>
+      <button class="btn" id="codeGo">Enter as admin</button>
+      <button class="btn ghost" id="codeCancel">Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- Claim prompt -->
+<div class="overlay" id="claim" hidden>
+  <div class="card">
+    <h2 id="claimTitle">You've entered New Farm</h2>
+    <p>This suburb is <strong>unclaimed</strong>. Claim it for your team?</p>
+    <div class="row">
+      <button class="btn" id="claimYes">Claim it</button>
+      <button class="btn ghost" id="claimNo">Not now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin region editor -->
+<div class="overlay" id="editor" hidden>
+  <div class="card">
+    <h2 id="editorTitle">Region</h2>
+    <p id="editorSub">Currently unclaimed.</p>
+    <div class="row">
+      <button class="btn orange" data-set="orange">Orange</button>
+      <button class="btn purple" data-set="purple">Purple</button>
+      <button class="btn ghost" data-set="">Unclaimed</button>
+      <button class="btn ghost" id="editorClose">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="config.js"></script>
+<script src="regions.js"></script>
+<script>
+(function () {
+  "use strict";
+  const CFG = window.GAME_CONFIG || {};
+  const REGIONS = window.REGIONS;
+  const TEAM_LABEL = { orange: "Team Orange", purple: "Team Purple", admin: "Admin" };
+  const $ = (id) => document.getElementById(id);
+
+  /* ================= Shared state store ================= */
+  // State shape: { regions: { [id]: {owner, by, at} }, events: [ {type, region, team, by, at} ] }
+  function LocalStore(gameId) {
+    const key = "bt-state-" + gameId;
+    const subs = [];
+    const read = () => { try { return JSON.parse(localStorage.getItem(key)) || { regions: {}, events: [] }; } catch (e) { return { regions: {}, events: [] }; } };
+    const write = (s) => { try { localStorage.setItem(key, JSON.stringify(s)); } catch (e) {} emit(); };
+    const emit = () => { const s = read(); subs.forEach((cb) => cb(s)); };
+    window.addEventListener("storage", (e) => { if (e.key === key) emit(); });
+    return {
+      shared: false,
+      subscribe(cb) { subs.push(cb); cb(read()); },
+      setOwner(id, owner, by, team) {
+        const s = read();
+        if (owner) s.regions[id] = { owner, by, at: Date.now() }; else delete s.regions[id];
+        s.events = (s.events || []).concat([{ type: owner ? "claim" : "clear", region: id, owner, team, by, at: Date.now() }]).slice(-60);
+        write(s); return Promise.resolve();
+      },
+      reset(by) { write({ regions: {}, events: [{ type: "reset", team: "admin", by, at: Date.now() }] }); return Promise.resolve(); },
+    };
+  }
+
+  function FirebaseStore(gameId, fbConfig) {
+    let ref = null; const subs = []; let last = { regions: {}, events: [] };
+    const ready = new Promise((resolve, reject) => {
+      const load = (src) => new Promise((ok, bad) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = bad; document.head.appendChild(s); });
+      load("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js")
+        .then(() => load("https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"))
+        .then(() => {
+          window.firebase.initializeApp(fbConfig);
+          ref = window.firebase.database().ref("games/" + gameId);
+          ref.on("value", (snap) => {
+            const v = snap.val() || {};
+            const events = Object.values(v.events || {}).sort((a, b) => a.at - b.at);
+            last = { regions: v.regions || {}, events };
+            subs.forEach((cb) => cb(last));
+          });
+          resolve();
+        }).catch(reject);
+    });
+    return {
+      shared: true,
+      ready,
+      subscribe(cb) { subs.push(cb); cb(last); },
+      async setOwner(id, owner, by, team) {
+        await ready;
+        const ev = { type: owner ? "claim" : "clear", region: id, owner: owner || null, team, by, at: Date.now() };
+        await Promise.all([
+          owner ? ref.child("regions/" + id).set({ owner, by, at: Date.now() }) : ref.child("regions/" + id).remove(),
+          ref.child("events").push(ev),
+        ]);
+      },
+      async reset(by) {
+        await ready;
+        await ref.set({ regions: null, events: null });
+        await ref.child("events").push({ type: "reset", team: "admin", by, at: Date.now() });
+      },
+    };
+  }
+
+  const store = CFG.firebase ? FirebaseStore(CFG.gameId || "default", CFG.firebase) : LocalStore(CFG.gameId || "default");
+
+  /* ================= Geometry ================= */
+  function inRing(pt, ring) {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
+      const hit = ((yi > pt[1]) !== (yj > pt[1])) && (pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi);
+      if (hit) inside = !inside;
+    }
+    return inside;
+  }
+  function inPoly(pt, rings) {
+    if (!inRing(pt, rings[0])) return false;
+    for (let k = 1; k < rings.length; k++) if (inRing(pt, rings[k])) return false;
+    return true;
+  }
+  function regionAt(lng, lat) {
+    const pt = [lng, lat];
+    for (const f of REGIONS.features) {
+      const g = f.geometry;
+      const hit = g.type === "Polygon" ? inPoly(pt, g.coordinates) : g.coordinates.some((p) => inPoly(pt, p));
+      if (hit) return f.properties;
+    }
+    return null;
+  }
+  const regionName = (id) => { const f = REGIONS.features.find((x) => x.properties.id === id); return f ? f.properties.name : id; };
+
+  /* ================= Player ================= */
+  let player = null; // {team, name}
+  try { player = JSON.parse(localStorage.getItem("bt-player")); } catch (e) {}
+  const savePlayer = () => { try { localStorage.setItem("bt-player", JSON.stringify(player)); } catch (e) {} };
+
+  /* ================= Map ================= */
+  const map = L.map("map", { zoomControl: false, attributionControl: true }).setView([-27.475, 153.02], 13);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap" }).addTo(map);
+  L.control.zoom({ position: "bottomleft" }).addTo(map);
+
+  const STYLE = {
+    none:   { color: "#4b5160", weight: 1.5, dashArray: "4 4", fillColor: "#8b919f", fillOpacity: 0.12 },
+    orange: { color: "#c4500e", weight: 2, dashArray: null, fillColor: "#f26b1d", fillOpacity: 0.45 },
+    purple: { color: "#5a22b8", weight: 2, dashArray: null, fillColor: "#7b3fe4", fillOpacity: 0.45 },
+  };
+  let state = { regions: {}, events: [] };
+  let currentRegionId = null;
+  const layers = {};
+  const geo = L.geoJSON(REGIONS, {
+    style: () => STYLE.none,
+    onEachFeature(f, layer) {
+      layers[f.properties.id] = layer;
+      layer.bindTooltip(f.properties.name, { permanent: true, direction: "center", className: "rlabel" });
+      layer.on("click", () => onRegionTap(f.properties.id));
+    },
+  }).addTo(map);
+  const fitAll = () => { map.invalidateSize(); map.fitBounds(geo.getBounds(), { padding: [10, 10] }); };
+  setTimeout(fitAll, 0); window.addEventListener("load", fitAll);
+  window.addEventListener("resize", () => map.invalidateSize());
+  const updateLabelVis = () => document.getElementById("map").classList.toggle("labels-hidden", map.getZoom() < 13);
+  map.on("zoomend", updateLabelVis); updateLabelVis();
+
+  function restyle() {
+    let o = 0, p = 0;
+    for (const f of REGIONS.features) {
+      const id = f.properties.id; const owner = (state.regions[id] || {}).owner || "none";
+      if (owner === "orange") o++; if (owner === "purple") p++;
+      const s = Object.assign({}, STYLE[owner] || STYLE.none);
+      if (id === currentRegionId) { s.weight = 4; s.color = "#1e88ff"; s.dashArray = null; }
+      layers[id].setStyle(s);
+    }
+    $("scoreOrange").textContent = o; $("scorePurple").textContent = p;
+  }
+
+  /* ================= Location ================= */
+  let me = null; // {lat, lng, acc, sim}
+  let meMarker = null, meCircle = null, watchId = null, simMode = false, firstFix = true;
+  function setPosition(lat, lng, acc, sim) {
+    me = { lat, lng, acc, sim };
+    if (!meMarker) {
+      meMarker = L.marker([lat, lng], { icon: L.divIcon({ className: "", html: '<div class="me-dot' + (sim ? " sim" : "") + '"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1000 }).addTo(map);
+      meCircle = L.circle([lat, lng], { radius: acc || 0, color: "#1e88ff", weight: 1, fillOpacity: 0.08 }).addTo(map);
+    } else {
+      meMarker.setLatLng([lat, lng]); meCircle.setLatLng([lat, lng]); meCircle.setRadius(acc || 0);
+      meMarker.setIcon(L.divIcon({ className: "", html: '<div class="me-dot' + (sim ? " sim" : "") + '"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }));
+    }
+    if (firstFix) { map.setView([lat, lng], Math.max(map.getZoom(), 14)); firstFix = false; }
+    onMoved();
+  }
+  function startWatching() {
+    if (!navigator.geolocation) { setStatus("Location not supported", "This browser can't share your location.", ""); return; }
+    if (watchId !== null) return;
+    setStatus("Finding you…", "Allow location access when your phone asks.", "");
+    watchId = navigator.geolocation.watchPosition(
+      (pos) => { if (!simMode) setPosition(pos.coords.latitude, pos.coords.longitude, pos.coords.accuracy, false); },
+      (err) => {
+        watchId = null;
+        const why = err.code === 1 ? "Location access was blocked. Allow it in your browser settings and try again." : "Couldn't get a fix. Try again outdoors.";
+        setStatus("Location unavailable", why, "");
+        $("mainBtn").textContent = "Try again"; $("mainBtn").hidden = false;
+      },
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 }
+    );
+  }
+
+  /* ================= Status + claim flow ================= */
+  const dismissed = {}; // regionId -> time dismissed
+  let promptedFor = null;
+  function setStatus(place, sub, tone) {
+    $("place").textContent = place; $("sub").textContent = sub; $("sub").className = "sub " + (tone || "");
+  }
+  function onMoved() {
+    const r = me ? regionAt(me.lng, me.lat) : null;
+    const newId = r ? r.id : null;
+    const changed = newId !== currentRegionId;
+    currentRegionId = newId;
+    restyle();
+    renderStatus();
+    if (changed && newId && isTeam() && !state.regions[newId]) maybePrompt(newId);
+    if (changed) promptedFor = null;
+  }
+  const isTeam = () => player && (player.team === "orange" || player.team === "purple");
+  function maybePrompt(id) {
+    if (promptedFor === id) return;
+    if (dismissed[id] && Date.now() - dismissed[id] < 2 * 60 * 1000) return;
+    promptedFor = id;
+    $("claimTitle").textContent = "You've entered " + regionName(id);
+    const yes = $("claimYes"); yes.className = "btn " + player.team; yes.textContent = "Claim for " + TEAM_LABEL[player.team];
+    $("claim").hidden = false;
+  }
+  function renderStatus() {
+    const btn = $("mainBtn");
+    if (!me) {
+      btn.hidden = false; btn.className = "btn"; btn.textContent = "Locate me"; btn.onclick = startWatching;
+      if (player && player.team === "admin") setStatus("Admin console", "Tap any suburb to change who holds it, or use Simulate location to test the game.", "");
+      else setStatus("Share your location to play", "Your position is only used on this phone to work out which suburb you're in.", "");
+      return;
+    }
+    if (!currentRegionId) {
+      setStatus("Outside the game zone", "Head into one of the outlined suburbs.", ""); btn.hidden = true; return;
+    }
+    const name = regionName(currentRegionId); const rec = state.regions[currentRegionId];
+    if (!rec) {
+      setStatus(name, "Unclaimed", "");
+      if (isTeam()) { btn.hidden = false; btn.className = "btn " + player.team; btn.textContent = "Claim"; btn.onclick = () => claim(currentRegionId); }
+      else btn.hidden = true;
+    } else if (isTeam() && rec.owner === player.team) {
+      setStatus(name, "Held by your team" + (rec.by ? " · claimed by " + rec.by : ""), player.team); btn.hidden = true;
+    } else {
+      setStatus(name, "Held by " + TEAM_LABEL[rec.owner] + (rec.by ? " · claimed by " + rec.by : ""), rec.owner); btn.hidden = true;
+    }
+  }
+  async function claim(id) {
+    if (!isTeam()) return;
+    if (state.regions[id]) { toast(regionName(id) + " is already held by " + TEAM_LABEL[state.regions[id].owner]); return; }
+    try { await store.setOwner(id, player.team, player.name || "", player.team); toast(regionName(id) + " claimed for " + TEAM_LABEL[player.team] + "!"); }
+    catch (e) { toast("Couldn't save the claim. Check your connection and try again."); }
+  }
+  $("claimYes").onclick = () => { $("claim").hidden = true; claim(promptedFor || currentRegionId); };
+  $("claimNo").onclick = () => { $("claim").hidden = true; if (promptedFor) dismissed[promptedFor] = Date.now(); };
+
+  /* ================= Region tap ================= */
+  let editing = null;
+  function onRegionTap(id) {
+    if (simMode) return; // while simulating, a tap on the map just places you
+    const rec = state.regions[id]; const name = regionName(id);
+    if (player && player.team === "admin") {
+      editing = id; $("editorTitle").textContent = name;
+      $("editorSub").textContent = rec ? "Held by " + TEAM_LABEL[rec.owner] + (rec.by ? " · claimed by " + rec.by : "") + " at " + fmtTime(rec.at) : "Currently unclaimed.";
+      $("editor").hidden = false; return;
+    }
+    const own = rec ? "Held by " + TEAM_LABEL[rec.owner] + (rec.by ? " · " + rec.by : "") + " · " + fmtTime(rec.at) : "Unclaimed";
+    layers[id].bindPopup('<div class="pop"><h4>' + esc(name) + '</h4><div class="own">' + esc(own) + "</div></div>").openPopup();
+  }
+  $("editor").querySelectorAll("[data-set]").forEach((b) => b.onclick = async () => {
+    $("editor").hidden = true;
+    const owner = b.getAttribute("data-set") || null;
+    try { await store.setOwner(editing, owner, player.name || "Admin", "admin"); toast(regionName(editing) + (owner ? " given to " + TEAM_LABEL[owner] : " cleared")); }
+    catch (e) { toast("Couldn't save that change."); }
+  });
+  $("editorClose").onclick = () => { $("editor").hidden = true; };
+
+  /* ================= Admin tools ================= */
+  $("resetBtn").onclick = async () => {
+    if (!confirm("Clear every claim and start the game fresh?")) return;
+    try { await store.reset(player.name || "Admin"); toast("Game reset"); } catch (e) { toast("Couldn't reset."); }
+  };
+  $("simBtn").onclick = () => {
+    simMode = !simMode; $("simBtn").classList.toggle("active", simMode);
+    $("simBtn").textContent = simMode ? "Stop simulating" : "Simulate location";
+    if (simMode) toast("Tap the map to place yourself");
+    else if (watchId === null) { me = null; if (meMarker) { map.removeLayer(meMarker); map.removeLayer(meCircle); meMarker = meCircle = null; } firstFix = true; onMoved(); }
+  };
+  map.on("click", (e) => { if (simMode) setPosition(e.latlng.lat, e.latlng.lng, 0, true); });
+
+  /* ================= Feed ================= */
+  const fmtTime = (t) => t ? new Date(t).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) : "";
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  function renderFeed() {
+    const ul = $("feedList"); const evs = (state.events || []).slice().reverse();
+    if (!evs.length) { ul.innerHTML = '<li class="empty">Nothing has happened yet.</li>'; return; }
+    ul.innerHTML = evs.map((e) => {
+      const who = '<span class="t-' + esc(e.team || "admin") + '">' + esc(e.by || (e.team === "admin" ? "Admin" : TEAM_LABEL[e.team] || "Someone")) + "</span>";
+      let text;
+      if (e.type === "reset") text = who + " reset the game";
+      else if (e.type === "clear") text = who + " cleared " + esc(regionName(e.region));
+      else if (e.team === "admin") text = who + " gave " + esc(regionName(e.region)) + " to " + esc(TEAM_LABEL[e.owner]);
+      else text = who + " claimed " + esc(regionName(e.region)) + " for " + esc(TEAM_LABEL[e.owner]);
+      return "<li><time>" + fmtTime(e.at) + "</time><span>" + text + "</span></li>";
+    }).join("");
+  }
+  $("feedBtn").onclick = () => { $("feed").hidden = false; };
+  $("feedClose").onclick = () => { $("feed").hidden = true; };
+  $("locateBtn").onclick = () => { if (me) map.setView([me.lat, me.lng], Math.max(map.getZoom(), 15)); else startWatching(); };
+
+  /* ================= Store subscription ================= */
+  let loadedAt = Date.now(); let seenEvents = 0;
+  store.subscribe((s) => {
+    state = s || { regions: {}, events: [] };
+    const evs = state.events || [];
+    if (seenEvents && evs.length > seenEvents) {
+      const fresh = evs.slice(seenEvents).filter((e) => e.at > loadedAt && !(player && e.by === player.name && e.team === player.team));
+      const e = fresh[fresh.length - 1];
+      if (e && e.type === "claim") toast((e.by || TEAM_LABEL[e.team]) + " claimed " + regionName(e.region) + " for " + TEAM_LABEL[e.owner]);
+      else if (e && e.type === "reset") toast("The admin reset the game");
+    }
+    seenEvents = evs.length;
+    restyle(); renderStatus(); renderFeed();
+    if (currentRegionId && state.regions[currentRegionId] && !$("claim").hidden) $("claim").hidden = true;
+  });
+  if (!store.shared) { $("notice").innerHTML = "<b>Single-device mode.</b> Claims are saved on this device only until a shared database is configured."; $("notice").hidden = false; }
+  else if (store.ready) store.ready.catch(() => { $("notice").innerHTML = "<b>Can't reach the game server.</b> Check your connection."; $("notice").hidden = false; });
+
+  /* ================= Login ================= */
+  let pendingTeam = null;
+  function enter(team, name) {
+    player = { team, name: (name || "").trim() }; savePlayer();
+    $("login").hidden = true;
+    $("whoBadge").textContent = TEAM_LABEL[team]; $("whoBadge").className = "badge " + team;
+    $("whoName").textContent = player.name;
+    $("adminRow").hidden = team !== "admin";
+    firstFix = true;
+    renderStatus();
+    if (team !== "admin") startWatching();
+  }
+  $("login").querySelectorAll("[data-team]").forEach((b) => b.onclick = () => {
+    const team = b.getAttribute("data-team");
+    if (team === "admin" && CFG.adminCode) {
+      pendingTeam = team; $("codeField").hidden = false; $("codeRow").hidden = false; $("codeErr").hidden = true; $("codeInput").value = ""; $("codeInput").focus(); return;
+    }
+    enter(team, $("nameInput").value);
+  });
+  $("codeGo").onclick = () => {
+    if ($("codeInput").value === CFG.adminCode) enter("admin", $("nameInput").value);
+    else $("codeErr").hidden = false;
+  };
+  $("codeInput").addEventListener("keydown", (e) => { if (e.key === "Enter" || e.keyCode === 13) $("codeGo").click(); });
+  $("codeCancel").onclick = () => { $("codeField").hidden = true; $("codeRow").hidden = true; pendingTeam = null; };
+  $("switchBtn").onclick = () => {
+    player = null; try { localStorage.removeItem("bt-player"); } catch (e) {}
+    if (watchId !== null) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+    if (simMode) $("simBtn").click();
+    me = null; if (meMarker) { map.removeLayer(meMarker); map.removeLayer(meCircle); meMarker = meCircle = null; }
+    currentRegionId = null; restyle();
+    $("adminRow").hidden = true; $("login").hidden = false; $("codeField").hidden = true; $("codeRow").hidden = true;
+  };
+
+  /* ================= Toast ================= */
+  let toastT = null;
+  function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 3500); }
+
+  /* ================= Boot ================= */
+  if (player && (player.team === "orange" || player.team === "purple" || player.team === "admin")) {
+    $("nameInput").value = player.name || ""; enter(player.team, player.name);
+  } else { renderStatus(); }
+})();
+</script>
+</body>
+</html>
