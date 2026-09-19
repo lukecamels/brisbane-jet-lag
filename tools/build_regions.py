@@ -28,7 +28,11 @@ REGIONS = {
     "South Brisbane": ["South Brisbane"],
     "New Farm": ["New Farm"],
     "Brisbane City": ["Brisbane City", "Petrie Terrace"],   # neutral zone (see config.js)
-    "Victoria Park": ["Herston", "Kelvin Grove", "Spring Hill"],
+    "Victoria Park": ["Herston", "Kelvin Grove"],
+    "Spring Hill": ["Spring Hill"],
+    "Red Hill/Paddington": ["Red Hill", "Paddington"],
+    "Bowen Hills": ["Bowen Hills"],
+    "Albion/Hamilton": ["Albion", "Hamilton"],
     "The Valley": ["Fortitude Valley"],
     "Newstead/Teneriffe": ["Newstead", "Teneriffe"],
     "West End/Highgate Hill": ["West End", "Highgate Hill"],
@@ -36,7 +40,6 @@ REGIONS = {
     "Woolloongabba/East Brisbane": ["Woolloongabba", "East Brisbane"],
     "Milton/Auchenflower": ["Milton", "Auchenflower"],
     "Toowong/Taringa": ["Toowong", "Taringa"],
-    "St Lucia": ["St Lucia"],
 }
 
 HERE = os.path.dirname(os.path.abspath(__file__))
