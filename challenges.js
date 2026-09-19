@@ -14,6 +14,7 @@ window.CHALLENGES = {
   "bowen-hills": {
     title: "Win at Sideshow Alley",
     description: "Sideshow Alley loves its carnival games. My favourite is the one with the tower of cans. In your backpack you should have ten red cups. Assemble them into a tower (4 on the bottom, then 3, 2, 1). Choose any item you want to be your ball. Throw the ball at the tower and knock down all of the cups to pass this challenge. A throw means you must release your ball from that far away and not touch it (with anything) during its travel to the cups.",
+    note: "Knocked down means toppled or fallen off the surface it was on. Any cup still standing on the surface it started on is not knocked down. You do not rebuild the tower between throws. Your ball can be anything at all. Measure the distance with the iPhone Measure app.",
     tiers: {
       1: "3 throws from 5m.",
       2: "2 throws from 10m.",
