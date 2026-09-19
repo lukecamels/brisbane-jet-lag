@@ -12,7 +12,6 @@ window.CHALLENGES = {
   "spring-hill": null,   // Spring Hill
   "red-hill-paddington": null,   // Red Hill/Paddington
   "bowen-hills": null,   // Bowen Hills
-  "albion-hamilton": null,   // Albion/Hamilton
   "the-valley": null,   // The Valley
   "newstead-teneriffe": null,   // Newstead/Teneriffe
   "west-end-highgate-hill": null,   // West End/Highgate Hill

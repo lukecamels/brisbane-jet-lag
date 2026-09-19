@@ -32,7 +32,6 @@ REGIONS = {
     "Spring Hill": ["Spring Hill"],
     "Red Hill/Paddington": ["Red Hill", "Paddington"],
     "Bowen Hills": ["Bowen Hills"],
-    "Albion/Hamilton": ["Albion", "Hamilton"],
     "The Valley": ["Fortitude Valley"],
     "Newstead/Teneriffe": ["Newstead", "Teneriffe"],
     "West End/Highgate Hill": ["West End", "Highgate Hill"],
