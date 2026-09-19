@@ -38,8 +38,8 @@ REGIONS = {
     "West End/Highgate Hill": ["West End", "Highgate Hill"],
     "Bulimba/Hawthorne/Balmoral": ["Bulimba", "Hawthorne", "Balmoral"],
     "Woolloongabba/East Brisbane": ["Woolloongabba", "East Brisbane"],
-    "Milton/Auchenflower": ["Milton", "Auchenflower"],
-    "Toowong/Taringa": ["Toowong", "Taringa"],
+    "Milton": ["Milton"],
+    "Auchenflower/Toowong": ["Auchenflower", "Toowong"],
 }
 
 HERE = os.path.dirname(os.path.abspath(__file__))
