@@ -69,4 +69,14 @@ window.UNASSIGNED_CHALLENGES = [
     },
     needs: "A bubble tea shop",
   },
+  {
+    title: "Solve a Sudoku",
+    description: "Acquire a paper copy of a sudoku and a pen. Solve the sudoku with the pen. You may not make any mistakes: if you write the wrong number in a square, you fail this challenge. You may make working markings.",
+    tiers: {
+      1: "Solve any sudoku.",
+      2: "Solve a \"medium\" sudoku.",
+      3: "Solve a \"hard\" sudoku.",
+    },
+    needs: "Somewhere selling newspapers or puzzle books (newsagent, supermarket, convenience store)",
+  },
 ];
