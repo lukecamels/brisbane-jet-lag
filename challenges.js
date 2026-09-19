@@ -16,7 +16,7 @@ window.CHALLENGES = {
   "newstead-teneriffe": null,   // Newstead/Teneriffe
   "west-end-highgate-hill": {
     title: "Gather Exact Change",
-    description: "Choose a store. You may only enter one store and you may not enter the store before selecting it as your store for this challenge. Once you enter, you must acquire one of each Australian coin. You may not inform anyone in the store of what you are attempting to do or ask for change in any specific way, you may only purchase items and receive change for those purchases. You may not purchase multiple of any item.",
+    description: "Choose a store. You may only enter one store and you may not enter the store before selecting it as your store for this challenge. Once you enter, you must acquire one of each Australian coin (5c, 10c, 20c, 50c, $1 and $2). All purchases must be paid in cash from your starting amount, and only coins received as change count. You may not inform anyone in the store of what you are attempting to do or ask for change in any specific way, you may only purchase items and receive change for those purchases. You may not purchase multiple of any item.",
     tiers: {
       1: "Start with $20.",
       2: "Start with $10.",
