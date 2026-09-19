@@ -77,6 +77,7 @@ window.UNASSIGNED_CHALLENGES = [
       2: "Solve a \"medium\" sudoku.",
       3: "Solve a \"hard\" sudoku.",
     },
+    note: "To count as medium or hard, the difficulty must be printed on the puzzle itself. A puzzle with no printed difficulty only counts for 1 point.",
     needs: "Somewhere selling newspapers or puzzle books (newsagent, supermarket, convenience store)",
   },
 ];
