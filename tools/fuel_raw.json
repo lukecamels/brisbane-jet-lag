@@ -1,0 +1,1944 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-19T22:34:49Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 72396957,
+  "lat": -27.4394849,
+  "lon": 153.0304646,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Royal Dutch Shell",
+    "name": "Shell"
+  }
+},
+{
+  "type": "node",
+  "id": 156872732,
+  "lat": -27.4990852,
+  "lon": 152.9676328,
+  "tags": {
+    "addr:housenumber": "427",
+    "addr:street": "Moggill Road",
+    "amenity": "fuel",
+    "compressed_air": "yes",
+    "name": "Freedom Fuels"
+  }
+},
+{
+  "type": "node",
+  "id": 158023389,
+  "lat": -27.4260159,
+  "lon": 153.0132172,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP Grange"
+  }
+},
+{
+  "type": "node",
+  "id": 293657146,
+  "lat": -27.4552603,
+  "lon": 153.0072205,
+  "tags": {
+    "addr:housenumber": "153",
+    "addr:street": "Musgrave Road",
+    "amenity": "fuel",
+    "name": "Quill Petroleum",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 304154478,
+  "lat": -27.4529055,
+  "lon": 153.0111692,
+  "tags": {
+    "amenity": "fuel",
+    "name": "Tony Reed Mechanical Repairs"
+  }
+},
+{
+  "type": "node",
+  "id": 311708457,
+  "lat": -27.4985916,
+  "lon": 153.0280321,
+  "tags": {
+    "addr:housenumber": "200",
+    "addr:postcode": "4102",
+    "addr:state": "QLD",
+    "addr:street": "Annerley Road",
+    "addr:suburb": "Dutton Park",
+    "amenity": "fuel",
+    "atm": "no",
+    "branch": "Dutton Park",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "8",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Caltex",
+    "opening_hours": "Mo-Sa 05:00-22:00; Su 06:00-21:00",
+    "phone": "+61 7 3846 5375",
+    "self_service": "yes",
+    "toilets": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 327131035,
+  "lat": -27.4836057,
+  "lon": 153.0199268,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Liberty",
+    "brand:wikidata": "Q106687078",
+    "check_date": "2026-04-06",
+    "name": "Liberty"
+  }
+},
+{
+  "type": "node",
+  "id": 440540000,
+  "lat": -27.4790997,
+  "lon": 153.0710808,
+  "tags": {
+    "amenity": "fuel",
+    "compressed_air": "yes",
+    "name": "Freedom",
+    "opening_hours": "Mo-Fr 05:00-20:00; Sa,Su 05:45-20:00",
+    "operator": "freedon"
+  }
+},
+{
+  "type": "node",
+  "id": 829652867,
+  "lat": -27.4714545,
+  "lon": 153.0955939,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Coles Express",
+    "compressed_air": "yes",
+    "name": "Coles Express Cannon Hill",
+    "operator": "Shell"
+  }
+},
+{
+  "type": "node",
+  "id": 2149725229,
+  "lat": -27.4953509,
+  "lon": 153.1016678,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 2149973335,
+  "lat": -27.4928161,
+  "lon": 153.0824957,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Royal Dutch Shell",
+    "compressed_air": "yes",
+    "name": "Coles Express",
+    "operator": "Coles Group",
+    "operator:wikidata": "Q1339055"
+  }
+},
+{
+  "type": "node",
+  "id": 2151425350,
+  "lat": -27.5056950,
+  "lon": 153.0998377,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "brand:wikipedia": "en:Caltex",
+    "name": "Caltex"
+  }
+},
+{
+  "type": "node",
+  "id": 2353278716,
+  "lat": -27.5246006,
+  "lon": 152.9806232,
+  "tags": {
+    "addr:housenumber": "299",
+    "addr:postcode": "4075",
+    "addr:state": "QLD",
+    "addr:street": "Oxley Road",
+    "addr:suburb": "Graceville",
+    "amenity": "fuel",
+    "atm": "yes",
+    "branch": "Graceville",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "6",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Caltex",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "phone": "+61 7 3278 5015",
+    "self_service": "yes",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2353285807,
+  "lat": -27.5221014,
+  "lon": 152.9801367,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven Servo"
+  }
+},
+{
+  "type": "node",
+  "id": 3480575513,
+  "lat": -27.4795507,
+  "lon": 153.0437028,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "building:levels": "1",
+    "compressed_air": "yes",
+    "name": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/east-brisbane/bp-east-brisbane/1460"
+  }
+},
+{
+  "type": "node",
+  "id": 4417129115,
+  "lat": -27.4454324,
+  "lon": 153.0294657,
+  "tags": {
+    "addr:housenumber": "44",
+    "addr:postcode": "4006",
+    "addr:street": "Bowen Bridge Road",
+    "addr:suburb": "Herston",
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "name": "BP Bowen Bridge",
+    "opening_hours": "24/7",
+    "operator": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/herston/bp-bowen-bridge/1410"
+  }
+},
+{
+  "type": "node",
+  "id": 4449970435,
+  "lat": -27.4392760,
+  "lon": 152.9898190,
+  "tags": {
+    "addr:housenumber": "109",
+    "addr:postcode": "4060",
+    "addr:street": "Stewart Road",
+    "addr:suburb": "Ashgrove",
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP Ashgrove (Stewart St)",
+    "operator": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/ashgrove/bp-ashgrove/4215"
+  }
+},
+{
+  "type": "node",
+  "id": 5187489156,
+  "lat": -27.4460071,
+  "lon": 152.9974912,
+  "tags": {
+    "addr:housenumber": "161",
+    "addr:postcode": "4060",
+    "addr:state": "QLD",
+    "addr:street": "Waterworks Road",
+    "addr:suburb": "Ashgrove",
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP Ashgrove",
+    "operator": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/ashgrove/bp-ashgrove-waterworks-rd/1671"
+  }
+},
+{
+  "type": "node",
+  "id": 5731440996,
+  "lat": -27.4959879,
+  "lon": 153.0933183,
+  "tags": {
+    "addr:postcode": "4152",
+    "addr:state": "QLD",
+    "addr:street": "Old Cleveland Road",
+    "addr:suburb": "Carina",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "brand:wikipedia": "en:Caltex",
+    "name": "Ampol"
+  }
+},
+{
+  "type": "node",
+  "id": 7237518370,
+  "lat": -27.4710469,
+  "lon": 153.1037311,
+  "tags": {
+    "addr:housenumber": "1233",
+    "addr:postcode": "4170",
+    "addr:state": "QLD",
+    "addr:street": "Wynnum Road",
+    "addr:suburb": "Cannon Hill",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "brand:wikipedia": "en:Caltex Woolworths",
+    "compressed_air": "yes",
+    "fuel:discount": "Woolworths",
+    "name": "EG Ampol",
+    "operator": "EG Australia",
+    "operator:wikidata": "Q5023980"
+  }
+},
+{
+  "type": "node",
+  "id": 8766483668,
+  "lat": -27.4447485,
+  "lon": 152.9524104,
+  "tags": {
+    "amenity": "fuel",
+    "atm": "no",
+    "branch": "Wilston",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "8",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Caltex",
+    "opening_hours": "Mo-Fr 05:00-22:00; Sa-Su 05:00-21:00",
+    "phone": "+61 482 187 835",
+    "self_service": "yes",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10703166546,
+  "lat": -27.4360041,
+  "lon": 153.0150901,
+  "tags": {
+    "addr:housenumber": "282",
+    "addr:postcode": "4051",
+    "addr:state": "QLD",
+    "addr:street": "Newmarket Road",
+    "addr:suburb": "Wilston",
+    "amenity": "fuel",
+    "atm": "no",
+    "branch": "Wilston",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "6",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Caltex",
+    "opening_hours": "Mo-Fr 05:00-21:00; Sa 05:30-20:30; Su 06:00-20:00",
+    "phone": "+61 7 3356 4062",
+    "self_service": "yes",
+    "toilets": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 11984814903,
+  "lat": -27.4463656,
+  "lon": 153.0422056,
+  "tags": {
+    "addr:housenumber": "94",
+    "addr:postcode": "4006",
+    "addr:street": "Breakfast Creek Road",
+    "addr:suburb": "Newstead",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:discount": "Coles",
+    "fuel:lpg": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Shell Coles Express Newstead",
+    "opening_hours": "24/7",
+    "operator": "Shell",
+    "payment:coins": "yes",
+    "payment:mastercard": "yes",
+    "payment:notes": "yes",
+    "payment:visa": "yes",
+    "phone": "+61 7 3852 2712",
+    "shop": "convenience",
+    "source": "surv",
+    "website": "https://www.colesexpress.com.au/store-locator.aspx?locatorSearch=4006"
+  }
+},
+{
+  "type": "node",
+  "id": 12691011520,
+  "lat": -27.4568728,
+  "lon": 153.0868127,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "name": "Ampol"
+  }
+},
+{
+  "type": "node",
+  "id": 12818535639,
+  "lat": -27.5049093,
+  "lon": 152.9605392,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Royal Dutch Shell",
+    "name": "Coles Express"
+  }
+},
+{
+  "type": "node",
+  "id": 12898510644,
+  "lat": -27.4386596,
+  "lon": 153.0075645,
+  "tags": {
+    "addr:housenumber": "85",
+    "addr:street": "Enoggera Road",
+    "addr:suburb": "Newmarket",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven Newmarket",
+    "operator": "7-Eleven"
+  }
+},
+{
+  "type": "node",
+  "id": 13747458391,
+  "lat": -27.4467694,
+  "lon": 152.9596220,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "name": "BP The Gap",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/the-gap/bp-the-gap/1504"
+  }
+},
+{
+  "type": "way",
+  "id": 26451250,
+  "center": {
+    "lat": -27.4917328,
+    "lon": 153.0649924
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "compressed_air": "yes",
+    "landuse": "retail",
+    "name": "Ampol"
+  }
+},
+{
+  "type": "way",
+  "id": 28594902,
+  "center": {
+    "lat": -27.4171328,
+    "lon": 152.9491379
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "brand:wikipedia": "en:Caltex",
+    "building": "yes",
+    "name": "Ampol"
+  }
+},
+{
+  "type": "way",
+  "id": 39738334,
+  "center": {
+    "lat": -27.4453537,
+    "lon": 153.0084885
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "building": "yes",
+    "compressed_air": "yes",
+    "name": "Shell",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 57355622,
+  "center": {
+    "lat": -27.4975586,
+    "lon": 152.9736926
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "building": "roof",
+    "compressed_air": "yes",
+    "name": "BP",
+    "source": "Bing, local knowledge",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/indooroopilly/bp-moggill-road/4257"
+  }
+},
+{
+  "type": "way",
+  "id": 60720912,
+  "center": {
+    "lat": -27.4246543,
+    "lon": 153.0141483
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Liberty",
+    "brand:wikidata": "Q106687078",
+    "building": "yes",
+    "name": "Liberty"
+  }
+},
+{
+  "type": "way",
+  "id": 67591564,
+  "center": {
+    "lat": -27.5085563,
+    "lon": 153.0250115
+  },
+  "tags": {
+    "addr:housenumber": "180",
+    "addr:street": "Fairfield Road",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "building": "commercial",
+    "building:levels": "1",
+    "check_date": "2026-02-10",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:gasoline": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "roof:levels": "0",
+    "roof:shape": "skillion",
+    "self_service": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 204338515,
+  "center": {
+    "lat": -27.5123837,
+    "lon": 153.0319444
+  },
+  "tags": {
+    "addr:housenumber": "534",
+    "addr:postcode": "4103",
+    "addr:street": "Ipswich Road",
+    "addr:suburb": "Annerley",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "brand:wikipedia": "en:Ampol",
+    "building": "retail",
+    "building:levels": "1",
+    "check_date:opening_hours": "2025-09-19",
+    "compressed_air": "yes",
+    "name": "Ampol",
+    "opening_hours": "24/7",
+    "roof:levels": "0",
+    "roof:shape": "flat",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 204925802,
+  "center": {
+    "lat": -27.4876806,
+    "lon": 153.1002439
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "fuel:diesel": "yes",
+    "fuel:lpg": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "7-Eleven"
+  }
+},
+{
+  "type": "way",
+  "id": 258727395,
+  "center": {
+    "lat": -27.4907817,
+    "lon": 153.0405110
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "brand:wikipedia": "en:Caltex",
+    "compressed_air": "yes",
+    "name": "Caltex",
+    "operator": "caltex",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 315130477,
+  "center": {
+    "lat": -27.5023295,
+    "lon": 153.0453661
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "landuse": "commercial",
+    "name": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/stones-corner/bp-stones-corner/4280"
+  }
+},
+{
+  "type": "way",
+  "id": 368246358,
+  "center": {
+    "lat": -27.5268267,
+    "lon": 153.0557824
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Coles Express",
+    "brand:wikidata": "Q5144653",
+    "building": "yes",
+    "capacity": "8",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Shell Coles Express Holland Park",
+    "not:brand:wikidata": "Q110716465",
+    "opening_hours": "PH,Mo-Su 00:00-24:00+"
+  }
+},
+{
+  "type": "way",
+  "id": 375761042,
+  "center": {
+    "lat": -27.4394200,
+    "lon": 153.0399985
+  },
+  "tags": {
+    "addr:housenumber": "136-146",
+    "addr:street": "Abbotsford Road",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "brand:wikipedia": "en:Caltex",
+    "check_date": "2025-10-03",
+    "compressed_air": "yes",
+    "contact:website": "http://www.woolworths.com.au/storelocator/service/storefinder/petrol/suburb/Bowen%20Hills/state/QLD#",
+    "fuel:diesel": "yes",
+    "fuel:discount": "Woolworths",
+    "fuel:e10": "yes",
+    "fuel:lpg": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "landuse": "retail",
+    "name": "EG Ampol Bowen Hills",
+    "opening_hours": "24/7",
+    "operator": "EG Australia",
+    "operator:wikidata": "Q5023980",
+    "payment:coins": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+61 7 3216 1894",
+    "self_service": "no",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 375763802,
+  "center": {
+    "lat": -27.4528003,
+    "lon": 153.0419247
+  },
+  "tags": {
+    "addr:housenumber": "20",
+    "addr:postcode": "4006",
+    "addr:street": "Commercial Road",
+    "addr:suburb": "Newstead",
+    "amenity": "fuel",
+    "branch": "Newstead",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "check_date": "2026-09-12",
+    "fuel:diesel": "yes",
+    "fuel:octane_91": "yes",
+    "layer": "1",
+    "name": "BP",
+    "opening_hours": "24/7",
+    "operator": "BP",
+    "phone": "+61 7 3252 4131",
+    "self_service": "yes",
+    "shop": "kiosk",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/newstead/bp-newstead/1421"
+  }
+},
+{
+  "type": "way",
+  "id": 387596090,
+  "center": {
+    "lat": -27.4394756,
+    "lon": 153.0495131
+  },
+  "tags": {
+    "amenity": "fuel",
+    "branch": "Hamilton",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "building": "retail",
+    "height": "7",
+    "name": "BP Connect",
+    "opening_hours": "24/7",
+    "takeaway": "yes",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/hamilton/bp-hamilton-qld/1490"
+  }
+},
+{
+  "type": "way",
+  "id": 393614216,
+  "center": {
+    "lat": -27.5079710,
+    "lon": 152.9483022
+  },
+  "tags": {
+    "addr:housenumber": "888",
+    "addr:postcode": "4069",
+    "addr:state": "QLD",
+    "addr:street": "Marshall Lane",
+    "addr:suburb": "Kenmore",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "name": "Ampol Foodary",
+    "website": "https://locations.ampol.com.au/en/ampol-foodary-kenmore"
+  }
+},
+{
+  "type": "way",
+  "id": 393614219,
+  "center": {
+    "lat": -27.5080640,
+    "lon": 152.9467203
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 397448949,
+  "center": {
+    "lat": -27.4970035,
+    "lon": 153.0554079
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Coles Express",
+    "compressed_air": "yes",
+    "landuse": "commercial",
+    "name": "Coles Express",
+    "opening_hours": "PH,Mo-Su 00:00-24:00",
+    "operator": "Coles Group",
+    "operator:wikidata": "Q1339055"
+  }
+},
+{
+  "type": "way",
+  "id": 418527086,
+  "center": {
+    "lat": -27.4358923,
+    "lon": 153.0414532
+  },
+  "tags": {
+    "addr:housenumber": "230",
+    "addr:postcode": "4006",
+    "addr:street": "Abbotsford Road",
+    "addr:suburb": "Bowen Hills",
+    "amenity": "fuel",
+    "branch": "Bowen Hills",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "check_date": "2026-03-25",
+    "compressed_air": "yes",
+    "diesel": "yes",
+    "fuel:HGV_diesel": "yes",
+    "fuel:adblue": "yes",
+    "fuel:diesel": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "landuse": "retail",
+    "name": "BP",
+    "opening_hours": "24/7",
+    "operator": "BP",
+    "self_service": "yes",
+    "website": "https://map.bp.com/en-AU/AU/tankstelle/bowen-hills/bp-bowen-hills/7262",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 418541665,
+  "center": {
+    "lat": -27.4665122,
+    "lon": 153.0791244
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "brand:wikipedia": "en:Caltex",
+    "landuse": "retail",
+    "name": "Caltex",
+    "operator": "Caltex"
+  }
+},
+{
+  "type": "way",
+  "id": 418541673,
+  "center": {
+    "lat": -27.4664528,
+    "lon": 153.0782876
+  },
+  "tags": {
+    "addr:housenumber": "774",
+    "addr:postcode": "4170",
+    "addr:state": "QLD",
+    "addr:street": "Wynnum Road",
+    "addr:suburb": "Morningside",
+    "amenity": "fuel",
+    "atm": "yes",
+    "branch": "Morningside",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "6",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "landuse": "retail",
+    "name": "Caltex",
+    "opening_hours": "Mo-Fr 05:00-21:00; Sa 06:00-21:00; Su 06:00-20:00",
+    "phone": "+61 7 3899 1159",
+    "self_service": "yes",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 424221923,
+  "center": {
+    "lat": -27.4521227,
+    "lon": 153.0619153
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "209",
+    "addr:postcode": "4171",
+    "addr:state": "QLD",
+    "addr:street": "Oxford Street",
+    "addr:suburb": "Bulimba",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Coles Express",
+    "fuel:diesel": "yes",
+    "fuel:unleaded": "yes",
+    "landuse": "retail",
+    "name": "Coles Express",
+    "operator": "Coles Group",
+    "operator:wikidata": "Q1339055",
+    "self_service": "yes",
+    "source": "Brisbane City Council",
+    "source:date": "2018-12-14"
+  }
+},
+{
+  "type": "way",
+  "id": 439342368,
+  "center": {
+    "lat": -27.5142559,
+    "lon": 153.0546630
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "name": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/holland-park/bp-holland-park/2550"
+  }
+},
+{
+  "type": "way",
+  "id": 440184123,
+  "center": {
+    "lat": -27.5148496,
+    "lon": 153.0723921
+  },
+  "tags": {
+    "amenity": "fuel",
+    "compressed_air": "yes",
+    "name": "Holland Park Service Centre"
+  }
+},
+{
+  "type": "way",
+  "id": 446651904,
+  "center": {
+    "lat": -27.4145500,
+    "lon": 152.9771118
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "United",
+    "brand:wikidata": "Q28224393",
+    "name": "United",
+    "website": "https://servicestations.unitedpetroleum.com.au/location/united-mitchelton?utm_content=United+Petroleum+Mitchelton+%28Pie+Face%29&utm_campaign=Google+My+Business&utm_medium=organic&utm_source=google&utm_term=plcid_4924055729139535338"
+  }
+},
+{
+  "type": "way",
+  "id": 501310961,
+  "center": {
+    "lat": -27.4836621,
+    "lon": 153.0637272
+  },
+  "tags": {
+    "addr:housenumber": "164",
+    "addr:postcode": "4170",
+    "addr:state": "QLD",
+    "addr:street": "Bennetts Road",
+    "addr:suburb": "Norman Park",
+    "amenity": "fuel",
+    "atm": "yes",
+    "branch": "Norman Park",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "8",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "landuse": "retail",
+    "name": "Caltex",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "phone": "+61 7 3899 8224",
+    "self_service": "yes",
+    "toilets": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 507686924,
+  "center": {
+    "lat": -27.4914425,
+    "lon": 152.9939809
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "31",
+    "addr:postcode": "4066",
+    "addr:street": "Gailey Road",
+    "addr:suburb": "Toowong",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "building": "commercial",
+    "building:levels": "1",
+    "compressed_air": "yes",
+    "name": "Shell",
+    "opening_hours": "24/7",
+    "operator": "Shell",
+    "roof:shape": "flat",
+    "source": "Brisbane City Council",
+    "source:date": "2018-12-14",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 531935051,
+  "center": {
+    "lat": -27.5075683,
+    "lon": 152.9405239
+  },
+  "tags": {
+    "addr:housenumber": "2005",
+    "addr:street": "Moggill Road",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "fuel:discount": "Woolworths",
+    "name": "EG Australia",
+    "operator": "EG Australia",
+    "operator:wikidata": "Q5023980"
+  }
+},
+{
+  "type": "way",
+  "id": 543897191,
+  "center": {
+    "lat": -27.4289006,
+    "lon": 153.0367331
+  },
+  "tags": {
+    "addr:housenumber": "6",
+    "addr:postcode": "4010",
+    "addr:state": "QLD",
+    "addr:street": "McLennan Street",
+    "addr:suburb": "Albion",
+    "amenity": "fuel",
+    "branch": "Albion",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:Puma Energy",
+    "building": "retail",
+    "building:levels": "1",
+    "changing_table": "no",
+    "check_date:opening_hours": "2026-03-16",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "opening_hours:signed": "no",
+    "phone": "+61 482 186 540",
+    "roof:levels": "0",
+    "roof:shape": "flat",
+    "self_service": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 545952752,
+  "center": {
+    "lat": -27.4783029,
+    "lon": 152.9858691
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "retail"
+  }
+},
+{
+  "type": "way",
+  "id": 560646748,
+  "center": {
+    "lat": -27.4284317,
+    "lon": 153.0622033
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "94",
+    "addr:postcode": "4007",
+    "addr:street": "Kitchener Road",
+    "addr:suburb": "Ascot",
+    "amenity": "fuel",
+    "brand": "Mobil",
+    "brand:wikidata": "Q109676002",
+    "building": "yes",
+    "name": "Mobil",
+    "operator": "Mobil"
+  }
+},
+{
+  "type": "way",
+  "id": 599309751,
+  "center": {
+    "lat": -27.5300561,
+    "lon": 153.0716793
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Coles Express",
+    "brand:wikidata": "Q5144653",
+    "brand:wikipedia": "en:Coles Express",
+    "building": "yes",
+    "layer": "1",
+    "name": "Coles Express Logan Road"
+  }
+},
+{
+  "type": "way",
+  "id": 621235494,
+  "center": {
+    "lat": -27.4847974,
+    "lon": 153.0398664
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "96",
+    "addr:postcode": "4169",
+    "addr:street": "Wellington Road",
+    "addr:suburb": "East Brisbane",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "building": "retail",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 636691708,
+  "center": {
+    "lat": -27.4741099,
+    "lon": 153.0036554
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "compressed_air": "yes",
+    "name": "Shell",
+    "opening_hours": "24/7",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 776072386,
+  "center": {
+    "lat": -27.4697410,
+    "lon": 153.0957800
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "1069",
+    "addr:postcode": "4170",
+    "addr:street": "Wynnum Road",
+    "addr:suburb": "Cannon Hill",
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "name": "BP",
+    "operator": "BP",
+    "self_service": "yes",
+    "source": "Brisbane City Council",
+    "source:date": "2018-12-14",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/cannon-hill/bp-cannon-hill/4201"
+  }
+},
+{
+  "type": "way",
+  "id": 780066256,
+  "center": {
+    "lat": -27.4675355,
+    "lon": 153.0076141
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "name": "BP",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/milton/bp-milton-qld/1474"
+  }
+},
+{
+  "type": "way",
+  "id": 793121307,
+  "center": {
+    "lat": -27.4294666,
+    "lon": 152.9891385
+  },
+  "tags": {
+    "addr:housenumber": "6",
+    "addr:postcode": "4051",
+    "addr:state": "QLD",
+    "addr:street": "Browns Dip Road",
+    "addr:suburb": "Enoggera",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "brand:wikipedia": "en:Ampol",
+    "building": "yes",
+    "fuel:discount": "Woolworths",
+    "layer": "1",
+    "name": "EG Ampol Enoggera",
+    "operator": "EG Australia",
+    "operator:wikidata": "Q5023980"
+  }
+},
+{
+  "type": "way",
+  "id": 993775291,
+  "center": {
+    "lat": -27.5042741,
+    "lon": 153.0348178
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "338",
+    "addr:postcode": "4103",
+    "addr:street": "Ipswich Road",
+    "addr:suburb": "Annerley",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "brand:wikipedia": "en:Royal Dutch Shell",
+    "building": "commercial",
+    "building:levels": "1",
+    "check_date:opening_hours": "2026-04-21",
+    "compressed_air": "yes",
+    "name": "Shell",
+    "opening_hours:signed": "no",
+    "roof:levels": "0",
+    "roof:shape": "skillion",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1003011100,
+  "center": {
+    "lat": -27.5225282,
+    "lon": 153.0257607
+  },
+  "tags": {
+    "addr:housenumber": "810",
+    "addr:postcode": "4103",
+    "addr:street": "Ipswich Road",
+    "addr:suburb": "Annerley",
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "building": "retail",
+    "building:levels": "1",
+    "check_date:opening_hours": "2025-12-08",
+    "compressed_air": "yes",
+    "name": "BP",
+    "opening_hours:signed": "no",
+    "roof:shape": "flat",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/annerley/bp-annerley/7790",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1007780634,
+  "center": {
+    "lat": -27.4268052,
+    "lon": 153.0016336
+  },
+  "tags": {
+    "addr:housenumber": "438-444",
+    "addr:postcode": "4051",
+    "addr:state": "QLD",
+    "addr:street": "Enoggera Road",
+    "addr:suburb": "Alderley",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q154950;Q110716465",
+    "brand:wikipedia": "en:Royal Dutch Shell",
+    "fuel:diesel": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Shell Reddy Express Alderley",
+    "operator": "Coles Group",
+    "operator:wikidata": "Q1339055",
+    "phone": "+61 7 3734 0986",
+    "self_service": "yes",
+    "website": "https://www.coles.com.au/find-stores"
+  }
+},
+{
+  "type": "way",
+  "id": 1133582868,
+  "center": {
+    "lat": -27.4722943,
+    "lon": 153.0595273
+  },
+  "tags": {
+    "addr:housenumber": "3",
+    "addr:street": "Hawthorne Road",
+    "amenity": "fuel",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "name": "Pacific Galloways Hill Hawthorne",
+    "opening_hours": "Mo-Su 06:00-19:00",
+    "operator": "Pacific Petroleum",
+    "self_service": "yes",
+    "source": "Brisbane City Council",
+    "source:date": "2018-12-14"
+  }
+},
+{
+  "type": "way",
+  "id": 1186146892,
+  "center": {
+    "lat": -27.4346483,
+    "lon": 153.0791110
+  },
+  "tags": {
+    "addr:housenumber": "647",
+    "addr:postcode": "4009",
+    "addr:street": "Kingsford Smith Drive",
+    "addr:suburb": "Eagle Farm",
+    "amenity": "fuel",
+    "branch": "Eagle Farm",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "building": "roof",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "layer": "1",
+    "name": "Ampol",
+    "opening_hours": "24/7",
+    "operator": "Ampol",
+    "operator:wikidata": "Q4748528"
+  }
+},
+{
+  "type": "way",
+  "id": 1194880599,
+  "center": {
+    "lat": -27.4203828,
+    "lon": 152.9483840
+  },
+  "tags": {
+    "addr:housenumber": "523",
+    "addr:postcode": "4054",
+    "addr:state": "QLD",
+    "addr:street": "Settlement Road",
+    "addr:suburb": "Keperra",
+    "amenity": "fuel",
+    "branch": "Keperra",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "building": "roof",
+    "check_date": "2023-08-05",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "operator": "7-Eleven",
+    "phone": "+61 7 3851 1051",
+    "self_service": "yes",
+    "website": "https://www.7eleven.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 1197248793,
+  "center": {
+    "lat": -27.4251037,
+    "lon": 152.9899296
+  },
+  "tags": {
+    "addr:housenumber": "282",
+    "addr:postcode": "4051",
+    "addr:state": "QLD",
+    "addr:street": "Wardell Street",
+    "addr:suburb": "Enoggera",
+    "amenity": "fuel",
+    "atm": "no",
+    "branch": "Enoggera",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "10",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "landuse": "commercial",
+    "name": "Caltex",
+    "opening_hours": "Mo-Fr 05:00-22:00; Sa,Su 05:00-21:00",
+    "phone": "+61 7 3855 1902",
+    "self_service": "yes",
+    "toilets": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1201935850,
+  "center": {
+    "lat": -27.4170698,
+    "lon": 152.9820679
+  },
+  "tags": {
+    "addr:housenumber": "399",
+    "addr:postcode": "4051",
+    "addr:state": "QLD",
+    "addr:street": "Samford Road",
+    "addr:suburb": "Gaythorne",
+    "amenity": "fuel",
+    "branch": "Gaythorne",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "building": "roof",
+    "check_date": "2023-08-25",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "phone": "+61 7 3855 2065",
+    "website": "https://www.7eleven.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 1202221066,
+  "center": {
+    "lat": -27.4155264,
+    "lon": 152.9776498
+  },
+  "tags": {
+    "addr:housenumber": "550",
+    "addr:postcode": "4053",
+    "addr:state": "QLD",
+    "addr:street": "Samford Road",
+    "addr:suburb": "Mitchelton",
+    "amenity": "fuel",
+    "branch": "Mitchelton",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "building": "roof",
+    "check_date": "2026-03-08",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:discount": "Woolworths",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "EG Australia",
+    "opening_hours": "24/7",
+    "operator": "EG Australia",
+    "operator:wikidata": "Q5023980",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1215248546,
+  "center": {
+    "lat": -27.4102092,
+    "lon": 153.0716477
+  },
+  "tags": {
+    "addr:housenumber": "100",
+    "addr:postcode": "4011",
+    "addr:state": "QLD",
+    "addr:street": "East-West Arterial Road",
+    "addr:suburb": "Hendra",
+    "amenity": "fuel",
+    "branch": "Hendra",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Ampol",
+    "opening_hours": "Mo-Su 04:00-22:00",
+    "operator": "Ampol",
+    "operator:wikidata": "Q4748528"
+  }
+},
+{
+  "type": "way",
+  "id": 1215248552,
+  "center": {
+    "lat": -27.4105423,
+    "lon": 153.0475763
+  },
+  "tags": {
+    "addr:housenumber": "70",
+    "addr:postcode": "4030",
+    "addr:state": "QLD",
+    "addr:street": "Lodge Road",
+    "addr:suburb": "Kalinga",
+    "amenity": "fuel",
+    "atm": "no",
+    "branch": "Kalinga",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "6",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "landuse": "retail",
+    "name": "Caltex",
+    "opening_hours": "Mo-Su 06:00-20:00",
+    "phone": "+61 7 3857 5149",
+    "self_service": "yes",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1215248566,
+  "center": {
+    "lat": -27.4110864,
+    "lon": 153.0236413
+  },
+  "tags": {
+    "addr:housenumber": "193",
+    "addr:street": "Stafford Road",
+    "amenity": "fuel",
+    "branch": "Stafford",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "check_date": "2023-08-06",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Ampol",
+    "opening_hours": "24/7",
+    "operator": "Ampol",
+    "phone": "+61 7 3857 2120",
+    "self_service": "yes",
+    "website": "https://www.ampol.com.au/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1279482569,
+  "center": {
+    "lat": -27.4995782,
+    "lon": 152.9754647
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "60",
+    "addr:postcode": "4068",
+    "addr:street": "Underhill Avenue",
+    "addr:suburb": "Indooroopilly",
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "brand:wikipedia": "en:BP",
+    "building": "retail",
+    "compressed_air": "yes",
+    "landuse": "retail",
+    "name": "BP",
+    "source": "Brisbane City Council",
+    "source:date": "2018-12-14",
+    "website": "https://map.bp.com/en-AU/AU/gas-station/indooroopilly/bp-indooroopilly/1451"
+  }
+},
+{
+  "type": "way",
+  "id": 1302368172,
+  "center": {
+    "lat": -27.4429379,
+    "lon": 152.9437051
+  },
+  "tags": {
+    "addr:housenumber": "1121",
+    "addr:postcode": "4061",
+    "addr:state": "QLD",
+    "addr:street": "Waterworks Road",
+    "addr:suburb": "The Gap",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "landuse": "retail",
+    "name": "7-Eleven",
+    "operator": "Mobil"
+  }
+},
+{
+  "type": "way",
+  "id": 1307492185,
+  "center": {
+    "lat": -27.5194164,
+    "lon": 153.0151947
+  },
+  "tags": {
+    "addr:housenumber": "563",
+    "addr:postcode": "4104",
+    "addr:street": "Fairfield Road",
+    "addr:suburb": "Yeronga",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "building": "retail",
+    "building:levels": "1",
+    "check_date:opening_hours": "2026-01-27",
+    "compressed_air": "yes",
+    "name": "7-Eleven",
+    "opening_hours:signed": "no",
+    "roof:levels": "0",
+    "roof:shape": "flat",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1308992784,
+  "center": {
+    "lat": -27.4461780,
+    "lon": 152.9910402
+  },
+  "tags": {
+    "addr:housenumber": "3",
+    "addr:postcode": "4060",
+    "addr:state": "QLD",
+    "addr:street": "Trout Street",
+    "addr:suburb": "Ashgrove",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "landuse": "retail",
+    "name": "7-Eleven"
+  }
+},
+{
+  "type": "way",
+  "id": 1326534493,
+  "center": {
+    "lat": -27.4259626,
+    "lon": 153.0320951
+  },
+  "tags": {
+    "addr:housenumber": "404",
+    "addr:postcode": "4030",
+    "addr:street": "Lutwyche Road",
+    "addr:suburb": "Windsor",
+    "amenity": "fuel",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "building": "retail",
+    "compressed_air": "yes",
+    "name": "Ampol"
+  }
+},
+{
+  "type": "way",
+  "id": 1362700667,
+  "center": {
+    "lat": -27.5239222,
+    "lon": 153.0234246
+  },
+  "tags": {
+    "addr:housenumber": "841",
+    "addr:postcode": "4105",
+    "addr:street": "Ipswich Road",
+    "addr:suburb": "Moorooka",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "building": "retail",
+    "building:levels": "1",
+    "check_date:opening_hours": "2026-05-08",
+    "compressed_air": "yes",
+    "name": "7 Eleven",
+    "opening_hours:signed": "no",
+    "roof:levels": "0",
+    "roof:shape": "quadruple_saltbox",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1364949247,
+  "center": {
+    "lat": -27.5046701,
+    "lon": 153.0402771
+  },
+  "tags": {
+    "addr:city": "Brisbane",
+    "addr:housenumber": "99",
+    "addr:postcode": "4120",
+    "addr:street": "Juliette Street",
+    "addr:suburb": "Greenslopes",
+    "amenity": "fuel",
+    "building": "retail",
+    "compressed_air": "yes",
+    "name": "7 Eleven/Mobil"
+  }
+},
+{
+  "type": "way",
+  "id": 1365432756,
+  "center": {
+    "lat": -27.4382614,
+    "lon": 153.0670953
+  },
+  "tags": {
+    "addr:housenumber": "516",
+    "addr:postcode": "4007",
+    "addr:state": "QLD",
+    "addr:street": "Kingsford Smith Drive",
+    "addr:suburb": "Hamilton",
+    "amenity": "fuel",
+    "branch": "Hamilton Kingsford Smith Drive",
+    "brand": "Ampol",
+    "brand:wikidata": "Q4748528",
+    "delivery": "yes",
+    "delivery:partner": "Uber Eats",
+    "email": "hamilton@ampolretail.com.au",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_95": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Ampol Hamilton",
+    "opening_hours": "24/7",
+    "operator": "Ampol",
+    "payment:ampolcash": "yes",
+    "payment:app": "yes",
+    "payment:apple_pay": "yes",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:contactless": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:mastercard": "yes",
+    "payment:notes": "yes",
+    "payment:visa": "yes",
+    "phone": "+61 7 3268 6024",
+    "self_service": "yes",
+    "toilets": "yes",
+    "toilets:wheelchair": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1396493290,
+  "center": {
+    "lat": -27.4849340,
+    "lon": 153.0398871
+  },
+  "tags": {
+    "addr:housenumber": "508",
+    "addr:postcode": "4169",
+    "addr:state": "QLD",
+    "addr:street": "Vulture Street",
+    "addr:suburb": "East Brisbane",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "building": "roof",
+    "compressed_air": "yes",
+    "name": "7-Eleven"
+  }
+},
+{
+  "type": "way",
+  "id": 1420714912,
+  "center": {
+    "lat": -27.4273893,
+    "lon": 153.0501555
+  },
+  "tags": {
+    "addr:housenumber": "509",
+    "addr:postcode": "4011",
+    "addr:state": "QLD",
+    "addr:street": "Sandgate Road",
+    "addr:suburb": "Clayfield",
+    "amenity": "fuel",
+    "atm": "yes",
+    "branch": "Clayfield",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "6",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:e10": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Caltex",
+    "opening_hours": "24/7",
+    "phone": "+61 7 3099 0885",
+    "self_service": "yes",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1420714913,
+  "center": {
+    "lat": -27.4265710,
+    "lon": 153.0171074
+  },
+  "tags": {
+    "addr:housenumber": "142",
+    "addr:postcode": "4051",
+    "addr:state": "QLD",
+    "addr:street": "Days Road",
+    "addr:suburb": "Grange",
+    "amenity": "fuel",
+    "atm": "yes",
+    "branch": "Grange",
+    "brand": "Caltex",
+    "brand:wikidata": "Q277470",
+    "capacity": "8",
+    "compressed_air": "yes",
+    "fuel:diesel": "yes",
+    "fuel:octane_91": "yes",
+    "fuel:octane_98": "yes",
+    "name": "Caltex",
+    "opening_hours": "Mo-Su 05:00-20:00",
+    "phone": "+61 7 3856 0737",
+    "self_service": "yes",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1434956635,
+  "center": {
+    "lat": -27.5277436,
+    "lon": 153.0210224
+  },
+  "tags": {
+    "addr:housenumber": "930",
+    "addr:street": "Ipswich Road",
+    "amenity": "fuel",
+    "brand": "Pearl Energy",
+    "building": "retail",
+    "compressed_air": "yes",
+    "name": "Pearl Energy Moorooka Service Centre",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1459004034,
+  "center": {
+    "lat": -27.4446402,
+    "lon": 152.9524587
+  },
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "relation",
+  "id": 2134885,
+  "center": {
+    "lat": -27.4568284,
+    "lon": 153.1057194
+  },
+  "tags": {
+    "addr:housenumber": "887",
+    "addr:postcode": "4172",
+    "addr:state": "QLD",
+    "addr:street": "Lytton Road",
+    "addr:suburb": "Murarrie",
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "compressed_air": "yes",
+    "landuse": "retail",
+    "name": "7-Eleven",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

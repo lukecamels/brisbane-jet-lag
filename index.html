@@ -88,6 +88,17 @@
   .status .sub.purple { color: var(--purple-text); }
   .status .sub.danger { color: var(--danger); }
 
+  .challenge { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; max-height: 30vh; overflow-y: auto; }
+  .challenge .head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .challenge .eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--gold); font-weight: 600; }
+  .challenge h4 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 20px; line-height: 1.1; text-transform: uppercase; letter-spacing: .02em; }
+  .challenge p { margin: 6px 0 0; font-size: 13px; color: var(--text); }
+  .challenge p.note { color: var(--muted); font-size: 12px; }
+  .challenge ol { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+  .challenge li { display: grid; grid-template-columns: 44px 1fr; gap: 8px; align-items: start; font-size: 13px; }
+  .challenge li b { font-family: var(--display); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; text-align: center; padding: 2px 0; border-radius: 6px; background: var(--panel-2); color: var(--gold); }
+  .challenge.collapsed .body { display: none; }
+  .challenge.empty h4 { color: var(--muted); }
   .actions { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr; gap: 6px; }
   .actions .lbl { grid-column: 1 / -1; display: grid; grid-template-columns: 1.4fr 3fr 1.2fr; gap: 6px; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
   .actions .lbl span { text-align: center; }
@@ -243,6 +254,17 @@
       <div class="place" id="place">Share your location to play</div>
       <div class="sub" id="sub">Your position is only used on this phone to work out which suburb you're in.</div>
     </div>
+    <div class="challenge" id="challenge" hidden>
+      <div class="head">
+        <div><div class="eyebrow">Challenge here</div><h4 id="chTitle">Challenge</h4></div>
+        <button class="linkbtn" id="chToggle">Hide</button>
+      </div>
+      <div class="body">
+        <p id="chDesc"></p>
+        <ol id="chTiers"></ol>
+        <p class="note" id="chNote"></p>
+      </div>
+    </div>
     <div class="actions" id="actions">
       <div class="lbl"><span>Suburb</span><span>Complete challenge</span><span>&nbsp;</span></div>
       <button class="btn" id="btnClaim" data-act="claim" disabled>Claim</button>
@@ -322,6 +344,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="config.js?v=4"></script>
 <script src="regions.js?v=8"></script>
+<script src="challenges.js?v=2"></script>
 <script>
 (function () {
   "use strict";
@@ -547,7 +570,23 @@
     ["btnP1", "btnP2", "btnP3"].forEach((b) => { $(b).disabled = !challenge; $(b).className = "btn " + (challenge ? t : ""); });
     $("btnFail").disabled = !challenge;
   }
+  const CHALLENGES = window.CHALLENGES || {};
+  let shownChallenge = null;
+  function renderChallenge() {
+    const id = (me && currentRegionId && !isNeutral(currentRegionId)) ? currentRegionId : null;
+    $("challenge").hidden = !id;
+    if (!id || id === shownChallenge) { if (!id) shownChallenge = null; return; }
+    shownChallenge = id;
+    const c = CHALLENGES[id];
+    $("challenge").classList.toggle("empty", !c);
+    $("chTitle").textContent = c ? c.title : "No challenge written yet";
+    $("chDesc").textContent = c ? c.description : "This suburb can still be claimed for 1 point. Check with the admin about its challenge.";
+    $("chTiers").innerHTML = c ? [1, 2, 3].filter((n) => c.tiers && c.tiers[n]).map((n) => "<li><b>" + n + " pt</b><span>" + esc(c.tiers[n]) + "</span></li>").join("") : "";
+    $("chNote").textContent = (c && c.note) || ""; $("chNote").hidden = !(c && c.note);
+  }
+  $("chToggle").onclick = () => { const col = $("challenge").classList.toggle("collapsed"); $("chToggle").textContent = col ? "Show" : "Hide"; map.invalidateSize(); };
   function renderStatus() {
+    renderChallenge();
     const admin = player && player.team === "admin";
     $("actions").hidden = !!admin;
     $("locateMain").hidden = !!me;
@@ -615,7 +654,9 @@
     const show = (html) => L.popup().setLatLng(at).setContent(html).openOn(map);
     if (isNeutral(id)) { show('<div class="pop"><h4>' + esc(name) + '</h4><div class="own">Neutral zone &middot; can&#39;t be claimed</div></div>'); return; }
     if (player && player.team === "admin") {
-      editing = id; $("editorTitle").textContent = name; $("editorSub").textContent = describe(rec); $("editor").hidden = false; return;
+      editing = id; $("editorTitle").textContent = name;
+      $("editorSub").textContent = describe(rec) + " Challenge: " + ((window.CHALLENGES || {})[id] ? window.CHALLENGES[id].title : "not written yet") + ".";
+      $("editor").hidden = false; return;
     }
     show('<div class="pop"><h4>' + esc(name) + '</h4><div class="own">' + esc(describe(rec)) + "</div></div>");
   }
