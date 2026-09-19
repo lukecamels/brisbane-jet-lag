@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Places by region</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  html, body { height: 100%; margin: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #14161c; color: #f2f0ea; }
+  #wrap { display: flex; height: 100%; }
+  #map { flex: 1; }
+  #side { width: 380px; overflow-y: auto; padding: 14px 16px; border-left: 1px solid #343946; font-size: 13px; }
+  h1 { font-size: 17px; margin: 0 0 4px; } p { color: #9aa0ad; margin: 0 0 10px; }
+  .cats { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+  .cats label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; display: inline-block; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { padding: 5px 3px; border-bottom: 1px solid #2a2e38; text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #9aa0ad; font-weight: 600; }
+  tbody tr { cursor: pointer; } tbody tr:hover { background: #1e212a; }
+  td.zero { color: #5b6170; }
+  .lbl { background: none; border: 0; box-shadow: none; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #2b2f3a; text-shadow: 0 0 3px #fff, 0 0 3px #fff; text-align: center; white-space: normal; width: 90px; }
+  .lbl::before { display: none; }
+  .pin { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.5); }
+  .pin.out { opacity: .35; }
+  @media (max-width: 700px) { #wrap { flex-direction: column; } #side { width: auto; height: 42%; border-left: 0; border-top: 1px solid #343946; } }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="map"></div>
+  <div id="side">
+    <h1 id="title">Places by region</h1>
+    <p>Source: OpenStreetMap. Faded pins are outside the game area. Tick categories to show or hide them. Click a row to zoom.</p>
+    <div class="cats" id="cats"></div>
+    <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="../regions.js"></script>
+<script src="poi.js"></script>
+<script>
+  const P = window.POI; document.getElementById("title").textContent = P.title; document.title = P.title;
+  const map = L.map("map").setView([-27.47, 153.03], 13);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap" }).addTo(map);
+  const regionLayers = {};
+  const geo = L.geoJSON(window.REGIONS, {
+    style: { color: "#3a3f4b", weight: 2, fillColor: "#5b6170", fillOpacity: 0.2 },
+    onEachFeature(f, l) { regionLayers[f.properties.name] = l; l.bindTooltip(f.properties.name.replace(/\//g, "/<wbr>"), { permanent: true, direction: "center", className: "lbl" }); },
+  }).addTo(map);
+  const fitAll = () => { map.invalidateSize(); if (map.getSize().y > 50) map.fitBounds(geo.getBounds(), { padding: [10, 10] }); };
+  [0, 300, 1500].forEach((t) => setTimeout(fitAll, t));
+
+  const groups = {}, counts = {};
+  window.REGIONS.features.forEach((f) => { counts[f.properties.name] = {}; P.categories.forEach((c) => counts[f.properties.name][c.label] = 0); });
+  P.categories.forEach((c, i) => {
+    groups[c.label] = L.layerGroup(); if (i === 0) groups[c.label].addTo(map);
+    const lab = document.createElement("label");
+    lab.innerHTML = '<input type="checkbox" id="cat' + i + '"' + (i === 0 ? " checked" : "") + '><span class="dot" style="background:' + c.color + '"></span>' + c.label;
+    lab.querySelector("input").onchange = (e) => e.target.checked ? groups[c.label].addTo(map) : map.removeLayer(groups[c.label]);
+    document.getElementById("cats").appendChild(lab);
+  });
+  const colour = Object.fromEntries(P.categories.map((c) => [c.label, c.color]));
+  P.points.forEach((s) => {
+    if (s.region) counts[s.region][s.cat]++;
+    const icon = L.divIcon({ className: "", html: '<div class="pin' + (s.region ? "" : " out") + '" style="background:' + colour[s.cat] + '"></div>', iconSize: [14, 14], iconAnchor: [7, 7] });
+    L.marker([s.lat, s.lon], { icon }).bindPopup("<b>" + s.name + "</b><br>" + s.cat + (s.addr ? "<br>" + s.addr : "") + "<br>" + (s.region || "Outside the game area")).addTo(groups[s.cat]);
+  });
+  document.getElementById("thead").innerHTML = "<tr><th>Region</th>" + P.categories.map((c) => "<th title=\"" + c.label + "\">" + c.label.slice(0, 5) + "</th>").join("") + "</tr>";
+  const tb = document.getElementById("tbody");
+  Object.entries(counts).forEach(([name, row]) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + name + "</td>" + P.categories.map((c) => '<td class="' + (row[c.label] ? "" : "zero") + '">' + row[c.label] + "</td>").join("");
+    tr.onclick = () => map.fitBounds(regionLayers[name].getBounds(), { padding: [30, 30] });
+    tb.appendChild(tr);
+  });
+</script>
+</body>
+</html>
