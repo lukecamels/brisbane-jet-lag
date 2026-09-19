@@ -80,4 +80,15 @@ window.UNASSIGNED_CHALLENGES = [
     note: "To count as medium or hard, the difficulty must be printed on the puzzle itself. A puzzle with no printed difficulty only counts for 1 point.",
     needs: "Somewhere selling newspapers or puzzle books (newsagent, supermarket, convenience store)",
   },
+  {
+    title: "Film a Bird",
+    description: "I want to make a Brisbane nature documentary, get me some footage. Choose a bird and start filming it. You must keep it continuously in the footage for as long as your points tally requires. If the bird is ever not visible, this challenge is failed.",
+    tiers: {
+      1: "5 minutes, free movement.",
+      2: "10 minutes, the person holding the camera may not move once the film has started.",
+      3: "15 minutes, the camera may not move.",
+    },
+    note: "The bird cannot be fully obscured by anything. This includes if a person walks between you and the bird or if the bird walks behind anything solid.",
+    needs: "Anywhere with birds (parks, riverside, anywhere with ibis)",
+  },
 ];
