@@ -37,7 +37,8 @@ REGIONS = {
     "Newstead/Teneriffe": ["Newstead", "Teneriffe"],
     "West End/Highgate Hill": ["West End", "Highgate Hill"],
     "Bulimba/Hawthorne/Balmoral": ["Bulimba", "Hawthorne", "Balmoral"],
-    "Woolloongabba/East Brisbane": ["Woolloongabba", "East Brisbane"],
+    "Woolloongabba": ["Woolloongabba"],
+    "East Brisbane/Norman Park": ["East Brisbane", "Norman Park"],
     "Milton": ["Milton"],
     "Auchenflower/Toowong": ["Auchenflower", "Toowong"],
 }
