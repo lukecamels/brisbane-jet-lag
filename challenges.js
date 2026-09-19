@@ -20,13 +20,12 @@ window.CHALLENGES = {
   "woolloongabba": null,   // Woolloongabba
   "east-brisbane-norman-park": {
     title: "Predict a Fill-Up",
-    description: "Go to a petrol station in this area and pick a driver who is about to start filling up. Guess how many litres they will put in, watch them fill up, then check the pump to see how close you were.",
+    description: "Go to a petrol station in this area and pick a driver who is about to start filling up. You must lock in your driver (and your point attempt) before they start filling up and cannot change once they start. After they have finished filling up, lock in a guess for how much petrol they put in. Once you have locked in your guess, go to the pump and confirm the number. You may not practice, do any research or use any tools like a timer.",
     tiers: {
-      1: "Guess within 30% of the litres shown on the pump.",
-      2: "Guess the correct tens digit of the litres.",
-      3: "Guess the correct tens digit before they start pumping.",
+      1: "Guess a quantity in litres. Guess within 30% of the correct value to pass.",
+      2: "Guess the tens digit. Guess correctly to pass. e.g. \"1\" for 15L, \"4\" for 42L or \"0\" for 8L.",
+      3: "Guess the tens digit *before* they start filling up. Guess correctly to pass.",
     },
-    note: "For 1 or 2 points you may watch the whole fill-up before guessing. Tens digit: 15 L is 1, 42 L is 4, 8 L is 0. Say your guess out loud before anyone checks the pump.",
   },
   "milton": null,   // Milton
   "auchenflower-toowong": null,   // Auchenflower/Toowong

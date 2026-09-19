@@ -344,7 +344,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="config.js?v=4"></script>
 <script src="regions.js?v=8"></script>
-<script src="challenges.js?v=2"></script>
+<script src="challenges.js?v=3"></script>
 <script>
 (function () {
   "use strict";
@@ -581,7 +581,7 @@
     $("challenge").classList.toggle("empty", !c);
     $("chTitle").textContent = c ? c.title : "No challenge written yet";
     $("chDesc").textContent = c ? c.description : "This suburb can still be claimed for 1 point. Check with the admin about its challenge.";
-    $("chTiers").innerHTML = c ? [1, 2, 3].filter((n) => c.tiers && c.tiers[n]).map((n) => "<li><b>" + n + " pt</b><span>" + esc(c.tiers[n]) + "</span></li>").join("") : "";
+    $("chTiers").innerHTML = c ? [1, 2, 3].filter((n) => c.tiers && c.tiers[n]).map((n) => "<li><b>" + n + " pt</b><span>" + esc(c.tiers[n]).replace(/\*(.+?)\*/g, "<em>$1</em>") + "</span></li>").join("") : "";
     $("chNote").textContent = (c && c.note) || ""; $("chNote").hidden = !(c && c.note);
   }
   $("chToggle").onclick = () => { const col = $("challenge").classList.toggle("collapsed"); $("chToggle").textContent = col ? "Show" : "Hide"; map.invalidateSize(); };
