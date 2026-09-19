@@ -1,28 +1,40 @@
 """Fetch points of interest from OpenStreetMap and work out which game region each is in.
 
 Usage (from the project root):
-    python tools/fetch_poi.py
+    python tools/fetch_poi.py [sudoku|boba|petrol]
 Then open tools/poi-map.html through the local server.
 
-Edit CATEGORIES to look for something else. Each category is a label, a pin colour,
-and a list of OpenStreetMap tag filters.
+Add a preset to PRESETS to look for something else. Each category is a label, a pin
+colour, and a list of OpenStreetMap tag filters (= exact match, ~ regular expression).
 """
 import io
 import json
 import os
+import re
 import urllib.parse
 import urllib.request
 
 from shapely.geometry import shape, Point
 
-TITLE = "Where to find a sudoku"
-CATEGORIES = [
-    ("Newsagent",         "#d92d20", ['"shop"="newsagent"']),
-    ("Bookshop",          "#7b3fe4", ['"shop"="books"']),
-    ("Library",           "#0e9f6e", ['"amenity"="library"']),
-    ("Supermarket",       "#f26b1d", ['"shop"="supermarket"']),
-    ("Convenience store", "#1e88ff", ['"shop"="convenience"']),
-]
+import sys
+
+PRESETS = {
+    "sudoku": ("Where to find a sudoku", [
+        ("Newsagent",         "#d92d20", ['"shop"="newsagent"']),
+        ("Bookshop",          "#7b3fe4", ['"shop"="books"']),
+        ("Library",           "#0e9f6e", ['"amenity"="library"']),
+        ("Supermarket",       "#f26b1d", ['"shop"="supermarket"']),
+        ("Convenience store", "#1e88ff", ['"shop"="convenience"']),
+    ]),
+    "boba": ("Bubble tea shops", [
+        ("Bubble tea", "#d92d20", ['"cuisine"~"bubble_tea"', '"shop"="bubble_tea"', '"name"~"Boba|Bubble Tea|Chatime|Gong Cha|Sharetea|CoCo|Presotea|Top Tea|Machi Machi|Tea Master|Happy Lemon|The Alley"']),
+    ]),
+    "petrol": ("Petrol stations", [
+        ("Petrol station", "#d92d20", ['"amenity"="fuel"']),
+    ]),
+}
+PRESET = sys.argv[1] if len(sys.argv) > 1 else "sudoku"
+TITLE, CATEGORIES = PRESETS[PRESET]
 BBOX = "-27.53,152.94,-27.41,153.11"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -39,9 +51,14 @@ raw = json.load(urllib.request.urlopen(req, timeout=120))
 def category(tags):
     for label, _, flts in CATEGORIES:
         for flt in flts:
-            k, v = [x.strip('"') for x in flt.split("=")]
-            if tags.get(k) == v:
-                return label
+            if "~" in flt:
+                k, v = [x.strip('"') for x in flt.split("~")]
+                if re.search(v, tags.get(k, "")):
+                    return label
+            else:
+                k, v = [x.strip('"') for x in flt.split("=")]
+                if tags.get(k) == v:
+                    return label
     return None
 
 out = []

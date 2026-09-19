@@ -54,3 +54,19 @@ window.CHALLENGES = {
   "milton": null,   // Milton
   "auchenflower-toowong": null,   // Auchenflower/Toowong
 };
+
+// ---- Unassigned challenges ----
+// Written but not yet placed in a region. The game ignores this list.
+// To use one, move it into window.CHALLENGES above under a region id.
+window.UNASSIGNED_CHALLENGES = [
+  {
+    title: "Count the Boba",
+    description: "I've been trying to make my own bubble tea recently, but I don't know how many tapioca pearls to put in it. Find out how many are in one for me. Go to a bubble tea store and order a bubble tea with tapioca pearls (get yourself something you would like). Before drinking the bubble tea, guess how many tapioca pearls there are in it (and select your point attempt). Once you have submitted your guess, drain the tea and count them. Get your guess within the below percentage to pass this challenge.",
+    tiers: {
+      1: "Within 50%.",
+      2: "Within 25%.",
+      3: "Within 8%.",
+    },
+    needs: "A bubble tea shop",
+  },
+];
