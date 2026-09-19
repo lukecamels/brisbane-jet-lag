@@ -11,7 +11,15 @@ window.CHALLENGES = {
   "victoria-park": null,   // Victoria Park
   "spring-hill": null,   // Spring Hill
   "red-hill-paddington": null,   // Red Hill/Paddington
-  "bowen-hills": null,   // Bowen Hills
+  "bowen-hills": {
+    title: "Win at Sideshow Alley",
+    description: "Sideshow Alley loves its carnival games. My favourite is the one with the tower of cans. In your backpack you should have ten red cups. Assemble them into a tower (4 on the bottom, then 3, 2, 1). Choose any item you want to be your ball. Throw the ball at the tower and knock down all of the cups to pass this challenge. A throw means you must release your ball from that far away and not touch it (with anything) during its travel to the cups.",
+    tiers: {
+      1: "3 throws from 5m.",
+      2: "2 throws from 10m.",
+      3: "1 throw from 15m.",
+    },
+  },
   "the-valley": null,   // The Valley
   "newstead-teneriffe": null,   // Newstead/Teneriffe
   "west-end-highgate-hill": {
