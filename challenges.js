@@ -25,7 +25,7 @@ window.CHALLENGES = {
   },
   "bulimba-hawthorne-balmoral": {
     title: "Rank Google Reviews",
-    description: "You must take pictures of multiple things that you expect to have Google reviews. You must then order them from the worst to the best and lock in your guess. Then look up the Google reviews of each of these things. If you get them in exactly the correct order (ties don't count) then you pass this challenge. If there is no Google review for any of the things you selected, you fail this challenge.",
+    description: "You must take pictures of multiple things that you expect to have Google reviews. You must then order them from the worst to the best and lock in your guess. Then look up the Google reviews of each of these things. If you get them in exactly the correct order then you pass this challenge. If any two of your things have the same Google rating, you fail this challenge. If there is no Google review for any of the things you selected, you fail this challenge.",
     tiers: {
       1: "Select 3 things.",
       2: "Select 5 things.",
