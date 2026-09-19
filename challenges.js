@@ -82,13 +82,13 @@ window.UNASSIGNED_CHALLENGES = [
   },
   {
     title: "Film a Bird",
-    description: "I want to make a Brisbane nature documentary, get me some footage. Choose a bird and start filming it. You must keep it continuously in the footage for as long as your points tally requires. If the bird is ever not visible, this challenge is failed.",
+    description: "I want to make a Brisbane nature documentary, get me some footage. Choose a live, wild bird and lock in your point attempt before you start filming. You must film one specific individual bird, and you must be able to track which bird it is for the whole video. Keep it continuously in the footage, in a single continuous take, for as long as your points tally requires. If the bird is ever not visible, this challenge is failed.",
     tiers: {
       1: "5 minutes, free movement.",
-      2: "10 minutes, the person holding the camera may not move once the film has started.",
-      3: "15 minutes, the camera may not move.",
+      2: "10 minutes, the person holding the camera may not move their feet once the film has started.",
+      3: "15 minutes, the camera may not move. It must be set down and left alone, not held or touched, for the whole video.",
     },
-    note: "The bird cannot be fully obscured by anything. This includes if a person walks between you and the bird or if the bird walks behind anything solid.",
+    note: "The bird must be identifiable as a bird at the zoom you are at. The bird cannot be fully obscured by anything. This includes if a person walks between you and the bird or if the bird walks behind anything solid.",
     needs: "Anywhere with birds (parks, riverside, anywhere with ibis)",
   },
 ];
