@@ -71,13 +71,13 @@ window.CHALLENGES = {
   },
   "woolloongabba": {
     title: "Make Your Mark",
-    description: "The Gabba is the home of footy in Brisbane, so it's time to make your mark. Acquire an item to be your football. It can be anything you like. Choose a kicker and a catcher and lock in your point attempt. The kicker must kick the item to the catcher, who must catch it cleanly from at least the required distance away. To count as a mark, the item must be kicked with the foot, travel through the air the whole way, and be caught before it touches the ground or anything else.",
+    description: "The Gabba is the home of footy in Brisbane, so it's time to make your mark. Acquire an item to be your football. It can be anything you like. You may practise as much as you like. When you are ready, choose a kicker and a catcher, lock in your point attempt, and declare your attempt. You get exactly one attempt. The kicker must kick the item to the catcher, who must catch it cleanly from at least the required distance away. To count as a mark, the item must be kicked with the foot, travel through the air the whole way, and be caught before it touches the ground or anything else.",
     tiers: {
-      1: "15 metres, within 5 kicks.",
-      2: "25 metres, within 3 kicks.",
-      3: "40 metres, with 1 kick.",
+      1: "10 metres.",
+      2: "20 metres.",
+      3: "40 metres.",
     },
-    note: "Measure the distance with the iPhone Measure app. The catcher may move to take the catch, but must be at least the required distance from the kicker at the moment they catch it. A fumble that is held before it hits the ground still counts. You may not do any research or use any tools other than what this challenge requires.",
+    note: "You must attempt this somewhere it is safe to do so, in open space away from roads and bystanders. Measure the distance with the iPhone Measure app. The catcher may move to take the catch, but must be at least the required distance from the kicker at the moment they catch it. A fumble that is held before it hits the ground still counts.",
   },
   "east-brisbane-norman-park": {
     title: "Predict a Fill-Up",
