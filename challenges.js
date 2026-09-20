@@ -144,13 +144,13 @@ window.UNASSIGNED_CHALLENGES = [
   },
   {
     title: "Order from a Convenience Store",
-    description: "Split your team into 2 subteams, the shoppers and the predicters. Pick a convenience store and a difficulty. The shoppers must enter the convenience store, while the predicters remain outside, and take photos of the required number of items in the store that are all different prices. No price information can be on the pictures at all. The items must also be distinct, so you cannot get different sizes or flavours of the same product. Enter all the items into a random list generator, and order the photos by that random list order. Then take the pictures of the items to the predicters. The predicters must then guess the exact order of the items' prices correctly.",
+    description: "Split your team into 2 subteams, the shoppers and the predicters. Pick a convenience store and a difficulty. The shoppers must enter the convenience store, while the predicters remain outside, and take photos of the required number of items in the store that are all different prices. No price information can be on the pictures at all. The items must also be distinct, so you cannot get different sizes or flavours of the same product. Enter all the items into a random list generator, and order the photos by that random list order. Then take the pictures of the items to the predicters. The predicters must then rank the items from cheapest to most expensive, and must get the exact order correct.",
     tiers: {
       1: "5 items.",
       2: "8 items.",
       3: "12 items.",
     },
-    note: "You may not do any research or use any tools other than what this challenge requires.",
+    note: "Every item must have a price visibly displayed in the store. Use the full undiscounted price, ignoring any specials or multi-buy deals. The predicters may not have entered the store earlier in the game. The shoppers may not communicate anything about the items or their prices to the predicters. You may not do any research or use any tools other than what this challenge requires.",
     needs: "A convenience store (7-Eleven, NightOwl, servo shop or similar)",
   },
 ];
