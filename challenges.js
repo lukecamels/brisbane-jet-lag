@@ -104,16 +104,14 @@ window.UNASSIGNED_CHALLENGES = [
     needs: "Anywhere with birds (parks, riverside, anywhere with ibis)",
   },
   {
-    draft: true,   // needs a scouting visit to tune the time limits
-    title: "Find It on the Shelf",
-    description: "Go to the State Library of Queensland. Lock in your point attempt before anyone on your team walks in. Most of the library's books are kept in storage, so first use the library's One Search catalogue (on your phone or a library computer) to find a book that meets the requirement for your attempt and is listed as Open Access. Then find that exact copy on the shelf and photograph it in place. Your timer starts when the first team member enters the building and stops when the photo is taken.",
+    title: "Get Lucky",
+    description: "Some games require skill, others just require dumb luck. Is today your lucky day? Acquire a coin and go to [LOCATION TO BE CHOSEN]. Flip the coin and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. If you leave [LOCATION] you forfeit this challenge.",
     tiers: {
-      1: "20 minutes. Any Open Access book with Brisbane in its title.",
-      2: "12 minutes. An Open Access book whose title contains the first name of someone on your team.",
-      3: "6 minutes. An Open Access book whose author shares a surname with someone on your team.",
+      1: "6 heads in a row.",
+      2: "7 heads in a row.",
+      3: "9 heads in a row.",
     },
-    note: "You may not ask library staff or anyone else for help, and you may not have been inside the library earlier in the game. The catalogue is the only tool you may use.",
-    needs: "The State Library of Queensland (South Bank)",
-    suggestedRegion: "south-brisbane",
+    note: "Only one coin can be getting flipped at a time, and you must genuinely flip it. No attempting to get it to land as a heads. You may not do any research or use any tools other than what this challenge requires.",
+    needs: "A specific spot to be named in the text (replace the two LOCATION placeholders when assigning)",
   },
 ];
