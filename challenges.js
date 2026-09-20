@@ -114,4 +114,15 @@ window.UNASSIGNED_CHALLENGES = [
     note: "Only one coin can be getting flipped at a time. Every flip must be a genuine flip that you are not trying to influence in any way. You may not do any research or use any tools other than what this challenge requires.",
     needs: "A specific spot to be named in the text (replace the two LOCATION placeholders when assigning)",
   },
+  {
+    title: "Count the Nerds",
+    description: "Nerds are taking over the world, let's keep a track of them. Acquire some Nerds (the candy, specifically) and designate an eater. The eater must be blindfolded. Nobody can eat any Nerds before the attempt is started. Randomly generate a number from the range below (based on your chosen difficulty) and feed that many Nerds to the eater, who cannot know the number. The Nerds must all be fed at the same time, not individually. The eater must then correctly guess the number of Nerds placed in their mouth.",
+    tiers: {
+      1: "Between 3 and 12 Nerds.",
+      2: "Between 15 and 30 Nerds.",
+      3: "Between 20 and 50 Nerds.",
+    },
+    note: "You may not do any research or use any tools other than what this challenge requires.",
+    needs: "Somewhere selling Nerds (supermarket, convenience store, servo, lolly shop)",
+  },
 ];
