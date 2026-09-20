@@ -142,4 +142,15 @@ window.UNASSIGNED_CHALLENGES = [
     note: "No signalling: nobody may communicate the number to the eater in any way. The eater must count the Nerds using only their mouth. You may not do any research or use any tools other than what this challenge requires.",
     needs: "Somewhere selling Nerds (supermarket, convenience store, servo, lolly shop)",
   },
+  {
+    title: "Order from a Convenience Store",
+    description: "Split your team into 2 subteams, the shoppers and the predicters. Pick a convenience store and a difficulty. The shoppers must enter the convenience store, while the predicters remain outside, and take photos of the required number of items in the store that are all different prices. No price information can be on the pictures at all. The items must also be distinct, so you cannot get different sizes or flavours of the same product. Enter all the items into a random list generator, and order the photos by that random list order. Then take the pictures of the items to the predicters. The predicters must then guess the exact order of the items' prices correctly.",
+    tiers: {
+      1: "5 items.",
+      2: "8 items.",
+      3: "12 items.",
+    },
+    note: "You may not do any research or use any tools other than what this challenge requires.",
+    needs: "A convenience store (7-Eleven, NightOwl, servo shop or similar)",
+  },
 ];
