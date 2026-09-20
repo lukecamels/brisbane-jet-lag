@@ -38,7 +38,7 @@ window.CHALLENGES = {
   },
   "victoria-park": {
     title: "Get Lucky",
-    description: "Some games require skill, others just require dumb luck. Is today your lucky day? Acquire a coin and go to the Victoria Park complex. Flip the coin and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. Your whole team must remain at the Victoria Park complex for the entire challenge. If anyone on your team leaves, you forfeit this challenge.",
+    description: "Some games require skill, others just require dumb luck. Is today your lucky day? Acquire a coin and go to the Victoria Park complex. If the complex is closed or fenced off, set up just outside it, as close to the entrance as you can safely get. Flip the coin and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. Your whole team must remain at that spot for the entire challenge. If anyone on your team leaves, you forfeit this challenge.",
     tiers: {
       1: "6 heads in a row.",
       2: "8 heads in a row.",
