@@ -103,4 +103,17 @@ window.UNASSIGNED_CHALLENGES = [
     note: "The bird must be identifiable as a bird at the zoom you are at. The bird cannot be fully obscured by anything. This includes if a person walks between you and the bird or if the bird walks behind anything solid. You may not do any research or use any tools other than what this challenge requires.",
     needs: "Anywhere with birds (parks, riverside, anywhere with ibis)",
   },
+  {
+    draft: true,   // needs a scouting visit to tune the time limits
+    title: "Find It on the Shelf",
+    description: "Go to the State Library of Queensland. Lock in your point attempt before anyone on your team walks in. Most of the library's books are kept in storage, so first use the library's One Search catalogue (on your phone or a library computer) to find a book that meets the requirement for your attempt and is listed as Open Access. Then find that exact copy on the shelf and photograph it in place. Your timer starts when the first team member enters the building and stops when the photo is taken.",
+    tiers: {
+      1: "20 minutes. Any Open Access book with Brisbane in its title.",
+      2: "12 minutes. An Open Access book whose title contains the first name of someone on your team.",
+      3: "6 minutes. An Open Access book whose author shares a surname with someone on your team.",
+    },
+    note: "You may not ask library staff or anyone else for help, and you may not have been inside the library earlier in the game. The catalogue is the only tool you may use.",
+    needs: "The State Library of Queensland (South Bank)",
+    suggestedRegion: "south-brisbane",
+  },
 ];
