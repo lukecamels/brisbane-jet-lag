@@ -22,7 +22,16 @@ window.CHALLENGES = {
     },
   },
   "the-valley": null,   // The Valley
-  "newstead-teneriffe": null,   // Newstead/Teneriffe
+  "newstead-teneriffe": {
+    title: "Predict Business",
+    description: "Predict how many people will walk in through a single entrance to a business in a 5 minute period. Select one entrance to a business. You may watch it for as long as you would like before starting. When you are ready, lock in your prediction and your difficulty, then start a 5 minute timer. Count every person who walks in through that entrance during the window. Anyone walking in counts, staff and customers alike, and each person counts at most once. Compare your prediction against your count and if they are close enough you pass this challenge. If fewer than 5 people enter during your window, you fail this challenge.",
+    tiers: {
+      1: "Guess within 50% of the actual count.",
+      2: "Guess within 25% of the actual count.",
+      3: "Guess exactly the same as the actual count.",
+    },
+    note: "No messing with things: you may not do anything to influence who enters. You may not have any of your team members enter the business or instruct others to do so.",
+  },
   "west-end-highgate-hill": {
     title: "Gather Exact Change",
     description: "Choose a store. You may only enter one store and you may not enter the store before selecting it as your store for this challenge. Once you enter, you must acquire one of each Australian coin (5c, 10c, 20c, 50c, $1 and $2). All purchases must be paid in cash from your starting amount, and only coins received as change count. You may not inform anyone in the store of what you are attempting to do or ask for change in any specific way, you may only purchase items and receive change for those purchases. You may not purchase multiple of any item.",
@@ -93,17 +102,5 @@ window.UNASSIGNED_CHALLENGES = [
     },
     note: "The bird must be identifiable as a bird at the zoom you are at. The bird cannot be fully obscured by anything. This includes if a person walks between you and the bird or if the bird walks behind anything solid. You may not do any research or use any tools other than what this challenge requires.",
     needs: "Anywhere with birds (parks, riverside, anywhere with ibis)",
-  },
-  {
-    title: "Predict Business",
-    description: "Predict how many people will walk in through a single entrance to a business in a 5 minute period. Select one entrance to a business. You may watch it for as long as you would like before starting. When you are ready, lock in your prediction and your difficulty, then start a 5 minute timer. Count every person who walks in through that entrance during the window. Anyone walking in counts, staff and customers alike, and each person counts at most once. Compare your prediction against your count and if they are close enough you pass this challenge. If fewer than 5 people enter during your window, you fail this challenge.",
-    tiers: {
-      1: "Guess within 50% of the actual count.",
-      2: "Guess within 25% of the actual count.",
-      3: "Guess exactly the same as the actual count.",
-    },
-    note: "No messing with things: you may not do anything to influence who enters. You may not have any of your team members enter the business or instruct others to do so.",
-    needs: "A steady stream of foot traffic into shops or cafes",
-    suggestedRegion: "newstead-teneriffe",
   },
 ];
