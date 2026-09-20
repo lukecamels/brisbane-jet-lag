@@ -105,13 +105,13 @@ window.UNASSIGNED_CHALLENGES = [
   },
   {
     title: "Get Lucky",
-    description: "Some games require skill, others just require dumb luck. Is today your lucky day? Acquire a coin and go to [LOCATION TO BE CHOSEN]. Flip the coin and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. If you leave [LOCATION] you forfeit this challenge.",
+    description: "Some games require skill, others just require dumb luck. Is today your lucky day? Acquire a coin and go to [LOCATION TO BE CHOSEN]. Flip the coin and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. Your whole team must remain at [LOCATION] for the entire challenge. If anyone on your team leaves, you forfeit this challenge.",
     tiers: {
       1: "6 heads in a row.",
-      2: "7 heads in a row.",
+      2: "8 heads in a row.",
       3: "9 heads in a row.",
     },
-    note: "Only one coin can be getting flipped at a time, and you must genuinely flip it. No attempting to get it to land as a heads. You may not do any research or use any tools other than what this challenge requires.",
+    note: "Only one coin can be getting flipped at a time. Every flip must be a genuine flip that you are not trying to influence in any way. You may not do any research or use any tools other than what this challenge requires.",
     needs: "A specific spot to be named in the text (replace the two LOCATION placeholders when assigning)",
   },
 ];
