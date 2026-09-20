@@ -96,13 +96,13 @@ window.UNASSIGNED_CHALLENGES = [
   },
   {
     title: "Predict Business",
-    description: "Predict how many customers a business will have enter their premises in a 10 minute period. When you choose to start this challenge, select a difficulty and start a timer. Count the number of people that enter that business during the 10 minute window. Compare your prediction against your count and if they are close enough you pass this challenge. The business you select must have at least 5 customers during your 10 minute window. You may watch the business for as long as you would like before starting your 10 minute window.",
+    description: "Predict how many people will walk in through a single entrance to a business in a 10 minute period. Select one entrance to a business. You may watch it for as long as you would like before starting. When you are ready, lock in your prediction and your difficulty, then start a 10 minute timer. Count every person who walks in through that entrance during the window. Anyone walking in counts, staff and customers alike, and each person counts at most once. Compare your prediction against your count and if they are close enough you pass this challenge. If fewer than 5 people enter during your window, you fail this challenge.",
     tiers: {
-      1: "Count within 50% of guess.",
-      2: "Count within 25% of guess.",
-      3: "Count exactly the same as guess.",
+      1: "Guess within 50% of the actual count.",
+      2: "Guess within 25% of the actual count.",
+      3: "Guess exactly the same as the actual count.",
     },
-    note: "You may not have any of your team members enter the business or instruct others to do so. You may not do any research or use any tools other than what this challenge requires.",
+    note: "No messing with things: you may not do anything to influence who enters. You may not have any of your team members enter the business or instruct others to do so. You may not do any research or use any tools other than what this challenge requires.",
     needs: "A steady stream of foot traffic into shops or cafes",
     suggestedRegion: "newstead-teneriffe",
   },
