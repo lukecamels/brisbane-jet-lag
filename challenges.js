@@ -14,7 +14,7 @@ window.CHALLENGES = {
       2: "7 items.",
       3: "10 items.",
     },
-    note: "Every item must have a price visibly displayed in the store. Use the full undiscounted price, ignoring any specials or multi-buy deals. The predicters may not have entered the store earlier in the game. The shoppers may not communicate anything about the items or their prices to the predicters. You may not do any research or use any tools other than what this challenge requires.",
+    note: "Every item must have a price visibly displayed in the store. Use the full undiscounted price, ignoring any specials or multi-buy deals. The predicters may not gain any information about prices: they may not have entered the store earlier in the game, may not look into the store, and may not go inside any other store during this challenge. The shoppers may not communicate anything about the items or their prices to the predicters. You may not do any research or use any tools other than what this challenge requires.",
   },
   "south-brisbane": {
     title: "Count the Boba",
