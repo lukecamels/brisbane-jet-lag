@@ -69,7 +69,16 @@ window.CHALLENGES = {
       3: "Select 7 things.",
     },
   },
-  "woolloongabba": null,   // Woolloongabba
+  "woolloongabba": {
+    title: "Make Your Mark",
+    description: "The Gabba is the home of footy in Brisbane, so it's time to make your mark. Acquire an item to be your football. It can be anything you like. Choose a kicker and a catcher and lock in your point attempt. The kicker must kick the item to the catcher, who must catch it cleanly from at least the required distance away. To count as a mark, the item must be kicked with the foot, travel through the air the whole way, and be caught before it touches the ground or anything else.",
+    tiers: {
+      1: "15 metres, within 5 kicks.",
+      2: "25 metres, within 3 kicks.",
+      3: "40 metres, with 1 kick.",
+    },
+    note: "Measure the distance with the iPhone Measure app. The catcher may move to take the catch, but must be at least the required distance from the kicker at the moment they catch it. A fumble that is held before it hits the ground still counts. You may not do any research or use any tools other than what this challenge requires.",
+  },
   "east-brisbane-norman-park": {
     title: "Predict a Fill-Up",
     description: "Go to a petrol station in this area and pick a driver who is about to start filling up. The driver must be a stranger and must be filling up a car (not a motorbike, truck or jerry can). You must lock in your driver (and your point attempt) before they start filling up and cannot change once they start. After they have finished filling up, lock in a guess for how much petrol they put in. You may not look at the pump display or the car's dashboard until your guess is locked in. Once you have locked in your guess, go to the pump and confirm the number. You may not practice, do any research or use any tools like a timer.",
