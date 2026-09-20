@@ -38,8 +38,7 @@ REGIONS = {
     "Bulimba/Hawthorne/Balmoral": ["Bulimba", "Hawthorne", "Balmoral"],
     "Woolloongabba": ["Woolloongabba"],
     "East Brisbane/Norman Park": ["East Brisbane", "Norman Park"],
-    "Milton": ["Milton"],
-    "Auchenflower/Toowong": ["Auchenflower", "Toowong"],
+    "Milton/Auchenflower": ["Milton", "Auchenflower"],
 }
 
 # Places that are moved from one region to another, for game reasons rather than real geography.

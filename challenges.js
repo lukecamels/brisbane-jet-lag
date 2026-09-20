@@ -88,8 +88,7 @@ window.CHALLENGES = {
       3: "Guess the tens digit *before* they start filling up. Guess correctly to pass.",
     },
   },
-  "milton": null,   // Milton
-  "auchenflower-toowong": null,   // Auchenflower/Toowong
+  "milton-auchenflower": null,   // Milton/Auchenflower
 };
 
 // ---- Unassigned challenges ----
