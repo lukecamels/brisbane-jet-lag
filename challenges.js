@@ -94,4 +94,16 @@ window.UNASSIGNED_CHALLENGES = [
     note: "The bird must be identifiable as a bird at the zoom you are at. The bird cannot be fully obscured by anything. This includes if a person walks between you and the bird or if the bird walks behind anything solid. You may not do any research or use any tools other than what this challenge requires.",
     needs: "Anywhere with birds (parks, riverside, anywhere with ibis)",
   },
+  {
+    title: "Predict Business",
+    description: "Predict how many customers a business will have enter their premises in a 10 minute period. When you choose to start this challenge, select a difficulty and start a timer. Count the number of people that enter that business during the 10 minute window. Compare your prediction against your count and if they are close enough you pass this challenge. The business you select must have at least 5 customers during your 10 minute window. You may watch the business for as long as you would like before starting your 10 minute window.",
+    tiers: {
+      1: "Count within 50% of guess.",
+      2: "Count within 25% of guess.",
+      3: "Count exactly the same as guess.",
+    },
+    note: "You may not have any of your team members enter the business or instruct others to do so. You may not do any research or use any tools other than what this challenge requires.",
+    needs: "A steady stream of foot traffic into shops or cafes",
+    suggestedRegion: "newstead-teneriffe",
+  },
 ];
