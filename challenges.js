@@ -126,11 +126,11 @@ window.CHALLENGES = {
   },
   "east-brisbane-norman-park": {
     title: "Predict a Fill-Up",
-    description: "Go to a petrol station in this area and pick a driver who is about to start filling up. The driver must be a stranger and must be filling up a car (not a motorbike, truck or jerry can). You must lock in your driver (and your point attempt) before they start filling up and cannot change once they start. After they have finished filling up, lock in a guess for how much petrol they put in. You may not look at the pump display or the car's dashboard until your guess is locked in. Once you have locked in your guess, go to the pump and confirm the number. You may not practice, do any research or use any tools like a timer.",
+    description: "Go to a petrol station in this area and pick a driver who is about to start filling up. The driver must be a stranger and must be filling up a car (not a motorbike, truck or jerry can). You must lock in your driver (and your point attempt) before they start filling up and cannot change once they start. For a 1 point attempt, lock in a guess for how much petrol they put in after they have finished filling up. For a 2 or 3 point attempt, you must lock in your guess before they start filling up. You may not look at the pump display or the car's dashboard until your guess is locked in. Once you have locked in your guess, go to the pump and confirm the number. You may not practice, do any research or use any tools like a timer.",
     tiers: {
-      1: "Guess a quantity in litres. Your guess must be within 30% of the actual amount on the pump to pass.",
-      2: "Guess the tens digit. Guess correctly to pass. e.g. \"1\" for 15L, \"4\" for 42L or \"0\" for 8L.",
-      3: "Guess the tens digit *before* they start filling up. Guess correctly to pass.",
+      1: "After they finish, guess a quantity in litres. Your guess must be within 30% of the actual amount on the pump to pass.",
+      2: "Guess the tens digit *before* they start filling up. Guess correctly to pass. e.g. \"1\" for 15L, \"4\" for 42L or \"0\" for 8L.",
+      3: "Guess a quantity in litres *before* they start filling up. Your guess must be within 3 litres of the actual amount on the pump to pass.",
     },
   },
   "milton-auchenflower": {
