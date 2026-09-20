@@ -19,7 +19,7 @@ import time
 import urllib.parse
 import urllib.request
 
-from shapely.geometry import shape, mapping, Polygon
+from shapely.geometry import shape, mapping, Polygon, box
 from shapely.ops import unary_union
 
 # region display name -> suburbs that make it up
@@ -46,6 +46,9 @@ REGIONS = {
 # (place name as OpenStreetMap knows it, region that gains it, region that loses it)
 TRANSFERS = [
     ("Roma Street Parklands", "Spring Hill", "Brisbane City"),
+    # Clean border: everything in the neutral zone north of the parkland's southern tip (the rail
+    # yards and the strip beside Wickham Park) also goes to Spring Hill. Roma Street station stays neutral.
+    ("box:153.0050,-27.46515,153.0235,-27.4500", "Spring Hill", "Brisbane City"),
 ]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -89,7 +92,10 @@ def rounded(m):
 
 built = {name: merge([suburb_shape(s) for s in suburbs]) for name, suburbs in REGIONS.items()}
 for place, gains, loses in TRANSFERS:
-    area = suburb_shape(place).buffer(0.00003)          # tiny overlap so the pieces weld together
+    if place.startswith("box:"):                          # west,south,east,north rectangle
+        area = box(*[float(v) for v in place[4:].split(",")]).intersection(built[loses]).buffer(0.00003)
+    else:
+        area = suburb_shape(place).buffer(0.00003)      # tiny overlap so the pieces weld together
     built[loses] = merge([built[loses].difference(area)])
     built[gains] = merge([built[gains], area])
     for other in built:                                   # never overlap any other region
