@@ -2,6 +2,7 @@
 // Shown to players only while they are standing inside that region.
 // Leave a region as null until its challenge is written.
 // Each entry has: title, description, tiers (what earns 1, 2 and 3 points), and an optional note.
+// A challenge can list only some tiers (the other point buttons stay off), and noFail: true turns off the Fail button.
 // See east-brisbane-norman-park below for a filled-in example.
 // After editing, bump the ?v= number on the challenges.js script tag in index.html.
 window.CHALLENGES = {
@@ -19,7 +20,14 @@ window.CHALLENGES = {
     },
     note: "The seekers may not know the target, and once seeking starts they may not look at any clock or timer until the hider is found. Once hidden, the hider must stay in place and may not signal or communicate with the seekers in any way. You may not do any research or use any tools other than what this challenge requires.",
   },
-  "red-hill-paddington": null,   // Red Hill/Paddington
+  "red-hill-paddington": {
+    title: "Tell Charlie We Say Hi",
+    description: "Charlie really wanted to come today and play with everyone, so let's give him that experience! Spend 5 minutes hanging out with Charlie. This task cannot be failed, only abandoned. It is a guaranteed 2 points.",
+    tiers: {
+      2: "Spend 5 minutes hanging out with Charlie.",
+    },
+    noFail: true,   // the Fail button stays off for this one
+  },
   "bowen-hills": {
     title: "Win at Sideshow Alley",
     description: "Sideshow Alley loves its carnival games. My favourite is the one with the tower of cans. In your backpack you should have ten red cups. Assemble them into a tower (4 on the bottom, then 3, 2, 1) on a stable, flat surface. Choose any item you want to be your ball. Throw the ball at the tower and knock down all of the cups to pass this challenge. A throw means you must release your ball from that far away and not touch it (with anything) during its travel to the cups.",

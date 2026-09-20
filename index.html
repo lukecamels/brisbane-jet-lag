@@ -344,7 +344,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="config.js?v=4"></script>
 <script src="regions.js?v=11"></script>
-<script src="challenges.js?v=14"></script>
+<script src="challenges.js?v=15"></script>
 <script>
 (function () {
   "use strict";
@@ -414,7 +414,9 @@
     };
   }
 
-  const store = CFG.firebase ? FirebaseStore(CFG.gameId || "default", CFG.firebase) : LocalStore(CFG.gameId || "default");
+  // Add ?local=1 to the address to test on one device without touching the shared game database.
+  const forceLocal = /[?&]local=1(&|$)/.test(location.search);
+  const store = (CFG.firebase && !forceLocal) ? FirebaseStore(CFG.gameId || "default", CFG.firebase) : LocalStore((CFG.gameId || "default") + (forceLocal ? "-localtest" : ""));
 
   /* ================= Geometry ================= */
   function inRing(pt, ring) {
@@ -567,8 +569,13 @@
   function setButtons(claim, challenge) {
     const t = isTeam() ? player.team : "";
     $("btnClaim").disabled = !claim; $("btnClaim").className = "btn " + (claim ? t : "");
-    ["btnP1", "btnP2", "btnP3"].forEach((b) => { $(b).disabled = !challenge; $(b).className = "btn " + (challenge ? t : ""); });
-    $("btnFail").disabled = !challenge;
+    // A challenge may offer only some point values (e.g. a guaranteed 2-pointer) and may be impossible to fail.
+    const c = (window.CHALLENGES || {})[currentRegionId];
+    [1, 2, 3].forEach((n) => {
+      const on = challenge && (!c || !c.tiers || !!c.tiers[n]);
+      $("btnP" + n).disabled = !on; $("btnP" + n).className = "btn " + (on ? t : "");
+    });
+    $("btnFail").disabled = !challenge || !!(c && c.noFail);
   }
   const CHALLENGES = window.CHALLENGES || {};
   let shownChallenge = null;
@@ -626,10 +633,12 @@
         toast(regionName(id) + " claimed for " + TEAM_LABEL[t] + " (+1)");
       } else if (kind === "lock") {
         if (!canChallenge(id, t)) return;
+        const ch = (window.CHALLENGES || {})[id]; if (ch && ch.tiers && !ch.tiers[pts]) return;
         await store.setRegion(id, Object.assign({}, rec, { status: "locked", lockedBy: t, points: pts, by: myName(), at: now }), Object.assign({ type: "lock", points: pts }, base));
         toast(regionName(id) + " locked for " + TEAM_LABEL[t] + " (+" + (1 + pts) + " total)");
       } else if (kind === "fail") {
         if (!canChallenge(id, t)) return;
+        const ch = (window.CHALLENGES || {})[id]; if (ch && ch.noFail) return;
         const failed = Object.assign({ orange: false, purple: false }, rec.failed || {}); failed[t] = true;
         await store.setRegion(id, Object.assign({}, rec, { failed }), Object.assign({ type: "fail" }, base));
         toast("Challenge failed in " + regionName(id));
@@ -725,7 +734,7 @@
     seenEvents = evs.length;
     restyle(); renderStatus(); renderFeed();
   });
-  if (!store.shared) { $("notice").innerHTML = "<b>Single-device mode.</b> Claims are saved on this device only until a shared database is configured."; $("notice").hidden = false; }
+  if (!store.shared) { $("notice").innerHTML = forceLocal ? "<b>Local test mode.</b> Nothing here is shared with other players." : "<b>Single-device mode.</b> Claims are saved on this device only until a shared database is configured."; $("notice").hidden = false; }
   else if (store.ready) store.ready.catch(() => { $("notice").innerHTML = "<b>Can't reach the game server.</b> Check your connection."; $("notice").hidden = false; });
 
   /* ================= Login ================= */
