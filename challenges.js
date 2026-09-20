@@ -11,13 +11,13 @@ window.CHALLENGES = {
   "victoria-park": null,   // Victoria Park
   "spring-hill": {
     title: "Timed Hide and Seek",
-    description: "Go to one of the entrances of Roma Street Parklands. This whole challenge takes place inside the parklands and nobody on your team may leave until it is over. Choose one hider. Everyone else is a seeker. You may not discuss any strategy beforehand. Lock in your point attempt, then the hider uses a random number generator on their phone to secretly generate a target between 2 and 10 minutes. The seekers close their eyes at the entrance and count to 60 while the hider goes and hides. The hider starts a timer when the seekers finish counting. The seekers must find the hider as close to the secret target time as possible. Seekers may split up and search the park independently if they want to. The hider is found the moment any seeker first sees them, and that seeker must call it immediately.",
+    description: "Go to one of the entrances of Roma Street Parklands. This whole challenge takes place inside the parklands and nobody on your team may leave until it is over. Choose one hider. Everyone else is a seeker. You may not discuss any strategy beforehand. Lock in your point attempt, then the hider uses a random number generator on their phone to secretly generate a target between 2 and 10 minutes. The hider then gets 10 minutes to hide. Everyone starts a 10 minute timer at the same moment, and the seekers wait at the entrance facing away from the park until it goes off. When it does, the seekers put their phones away and start seeking, and the hider starts a fresh timer to measure how long they take to be found. The seekers must find the hider as close to the secret target time as possible. Seekers may split up and search the park independently if they want to. The hider is found the moment any seeker first sees them, and that seeker must call it immediately.",
     tiers: {
       1: "Found within 2 minutes either side of the target.",
       2: "Found within 1 minute either side of the target.",
       3: "Found within 20 seconds either side of the target.",
     },
-    note: "The seekers may not know the target or look at any clock or timer until the hider is found. Once hidden, the hider must stay in place and may not signal or communicate with the seekers in any way. You may not do any research or use any tools other than what this challenge requires.",
+    note: "The seekers may not know the target, and once seeking starts they may not look at any clock or timer until the hider is found. Once hidden, the hider must stay in place and may not signal or communicate with the seekers in any way. You may not do any research or use any tools other than what this challenge requires.",
   },
   "red-hill-paddington": null,   // Red Hill/Paddington
   "bowen-hills": {
