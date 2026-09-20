@@ -27,9 +27,9 @@ REGIONS = {
     "Kangaroo Point": ["Kangaroo Point"],
     "South Brisbane": ["South Brisbane"],
     "New Farm": ["New Farm"],
-    "Brisbane City": ["Brisbane City", "Petrie Terrace"],   # neutral zone (see config.js)
+    "Brisbane City": ["Brisbane City"],   # neutral zone (see config.js)
     "Victoria Park": ["Herston", "Kelvin Grove"],
-    "Spring Hill": ["Spring Hill"],
+    "Spring Hill": ["Spring Hill", "Petrie Terrace"],
     "Red Hill/Paddington": ["Red Hill", "Paddington"],
     "Bowen Hills": ["Bowen Hills"],
     "The Valley": ["Fortitude Valley"],
@@ -41,6 +41,12 @@ REGIONS = {
     "Milton": ["Milton"],
     "Auchenflower/Toowong": ["Auchenflower", "Toowong"],
 }
+
+# Places that are moved from one region to another, for game reasons rather than real geography.
+# (place name as OpenStreetMap knows it, region that gains it, region that loses it)
+TRANSFERS = [
+    ("Roma Street Parklands", "Spring Hill", "Brisbane City"),
+]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SUBURB_DIR = os.path.join(HERE, "suburbs")
@@ -58,9 +64,10 @@ def suburb_shape(name):
         with urllib.request.urlopen(req) as r, open(path, "wb") as f:
             f.write(r.read())
         time.sleep(1.1)  # Nominatim allows one request per second
-    results = [x for x in json.load(io.open(path, encoding="utf-8")) if x.get("osm_type") == "relation"]
+    found = [x for x in json.load(io.open(path, encoding="utf-8")) if x["geojson"]["type"] in ("Polygon", "MultiPolygon")]
+    results = [x for x in found if x.get("osm_type") == "relation"] or found   # suburbs are relations; parks are often plain ways
     if not results:
-        raise SystemExit("No boundary found for suburb: " + name)
+        os.remove(path); raise SystemExit("No boundary found for: " + name)
     return shape(results[0]["geojson"]).buffer(0)
 
 
@@ -80,10 +87,20 @@ def rounded(m):
     return m
 
 
+built = {name: merge([suburb_shape(s) for s in suburbs]) for name, suburbs in REGIONS.items()}
+for place, gains, loses in TRANSFERS:
+    area = suburb_shape(place).buffer(0.00003)          # tiny overlap so the pieces weld together
+    built[loses] = merge([built[loses].difference(area)])
+    built[gains] = merge([built[gains], area])
+    for other in built:                                   # never overlap any other region
+        if other not in (gains, loses):
+            built[gains] = built[gains].difference(built[other])
+    built[gains] = merge([built[gains]])
+
 features = []
 for name, suburbs in REGIONS.items():
     rid = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-    geom = merge([suburb_shape(s) for s in suburbs])
+    geom = built[name]
     features.append({"type": "Feature", "id": rid, "properties": {"id": rid, "name": name},
                      "geometry": rounded(mapping(geom))})
     print("%-32s %-13s %s" % (rid, geom.geom_type, ", ".join(suburbs)))
