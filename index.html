@@ -94,6 +94,7 @@
   .challenge h4 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 20px; line-height: 1.1; text-transform: uppercase; letter-spacing: .02em; }
   .challenge p { margin: 6px 0 0; font-size: 13px; color: var(--text); }
   .challenge p.note { color: var(--muted); font-size: 12px; }
+  .challenge p.intro { color: var(--muted); font-style: italic; }
   .challenge ol { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
   .challenge li { display: grid; grid-template-columns: 44px 1fr; gap: 8px; align-items: start; font-size: 13px; }
   .challenge li b { font-family: var(--display); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; text-align: center; padding: 2px 0; border-radius: 6px; background: var(--panel-2); color: var(--gold); }
@@ -260,6 +261,7 @@
         <button class="linkbtn" id="chToggle">Hide</button>
       </div>
       <div class="body">
+        <p class="intro" id="chIntro"></p>
         <p id="chDesc"></p>
         <ol id="chTiers"></ol>
         <p class="note" id="chNote"></p>
@@ -344,7 +346,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="config.js?v=4"></script>
 <script src="regions.js?v=12"></script>
-<script src="challenges.js?v=24"></script>
+<script src="challenges.js?v=25"></script>
 <script>
 (function () {
   "use strict";
@@ -587,6 +589,7 @@
     const c = CHALLENGES[id];
     $("challenge").classList.toggle("empty", !c);
     $("chTitle").textContent = c ? c.title : "No challenge written yet";
+    $("chIntro").textContent = (c && c.intro) || ""; $("chIntro").hidden = !(c && c.intro);
     $("chDesc").textContent = c ? c.description : "This suburb can still be claimed for 1 point. Check with the admin about its challenge.";
     $("chTiers").innerHTML = c ? [1, 2, 3].filter((n) => c.tiers && c.tiers[n]).map((n) => "<li><b>" + n + " pt</b><span>" + esc(c.tiers[n]).replace(/\*(.+?)\*/g, "<em>$1</em>") + "</span></li>").join("") : "";
     $("chNote").textContent = (c && c.note) || ""; $("chNote").hidden = !(c && c.note);
