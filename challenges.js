@@ -8,14 +8,14 @@
 window.CHALLENGES = {
   "kangaroo-point": {
     title: "Order from a Convenience Store",
-    intro: "The predicters stay outside, the shoppers go in. How well do you know what things cost?",
-    description: "Split your team into 2 subteams, the shoppers and the predicters. Pick a convenience store and a difficulty. The shoppers must enter the convenience store, while the predicters remain outside, and take photos of the required number of items in the store that are all different prices. All items must be food or drink. No price information can be on the pictures at all. The items must also be distinct, so you cannot get different sizes or flavours of the same product. Enter all the items into a random list generator, and order the photos by that random list order. Then take the pictures of the items to the predicters. The predicters must then rank the items from cheapest to most expensive, and must get the exact order correct.",
+    intro: "Tony Abbott may not know how much groceries cost, but do you?",
+    description: "Split your team into 2 subteams, the shoppers and the predictors. Pick a convenience store and a difficulty (number of items). The shoppers must enter the convenience store, while the predictors remain outside. The shoppers will select a number of items in the store equal to their selected difficulty. These items must all be food or drink, all be different prices, and must be distinct (i.e. not different sizes/flavours of the same product). The shoppers must then generate a random list (e.g. 4, 2, 1, 3) and take pictures of their selected items in that order (in this case 4th cheapest, 2nd cheapest, cheapest, 3rd cheapest). These pictures must not have price information in them or otherwise attempt to show price information about the product, just take a photo of the item. The shoppers must then leave the store and show these pictures to the predictors. The predictors must order these from cheapest to most expensive. You pass this challenge if the predictors put the items in exactly the correct price order.",
     tiers: {
       1: "4 items.",
       2: "7 items.",
       3: "10 items.",
     },
-    note: "Every item must have a price visibly displayed in the store. Use the full undiscounted price, ignoring any specials or multi-buy deals. The predicters may not gain any information about prices: they may not have entered the store earlier in the game, may not look into the store, and may not go inside any other store during this challenge. The shoppers may not communicate anything about the items or their prices to the predicters. You may not do any research or use any tools other than what this challenge requires.",
+    note: "Every item must have a price visibly displayed in the store. Use the full undiscounted price, ignoring any specials or multi-buy deals. The predictors may not gain any information about prices: they may not have entered the store earlier in the game, may not look into the store, and may not go inside any other store during this challenge. The shoppers may not communicate anything about the items or their prices to the predictors. You may not do any research or use any tools other than what this challenge requires.",
   },
   "south-brisbane": {
     title: "Count the Boba",
@@ -31,7 +31,7 @@ window.CHALLENGES = {
   "new-farm": {
     title: "Film a Bird",
     intro: "I want to make a Brisbane nature documentary, get me some footage.",
-    description: "Choose a live, wild bird and lock in your point attempt before you start filming. You must film one specific individual bird, and you must be able to track which bird it is for the whole video. Keep it continuously in the footage, in a single continuous take, for as long as your points tally requires. If the bird is ever not visible, this challenge is failed.",
+    description: "Choose a live, wild bird and lock in your point attempt before you start filming. You must film one specific individual bird, and you must be able to track which bird it is for the whole video. Keep it continuously in the footage, in a single continuous take, for as long as your points tally requires. If the bird is ever not visible this challenge is failed.",
     tiers: {
       1: "5 minutes, free movement.",
       2: "10 minutes, the person holding the camera may not move their feet once the film has started.",
@@ -42,7 +42,7 @@ window.CHALLENGES = {
   "victoria-park": {
     title: "Get Lucky",
     intro: "Some games require skill, others just require dumb luck. Is today your lucky day?",
-    description: "Acquire a coin and go to the Victoria Park complex. If the complex is closed or fenced off, set up just outside it, as close to the entrance as you can safely get. Flip the coin and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. Your whole team must remain at that spot for the entire challenge. If anyone on your team leaves, you forfeit this challenge.",
+    description: "Go to the Victoria Park complex. If the complex is closed or fenced off, set up just outside it, as close to the entrance as you can safely get. Flip the coin (you should have one in your backpack) and get the required number of heads in a row. You must choose your threshold before flipping any coins and cannot change it. There is no failing this task other than giving up. Your whole team must remain at that spot for the entire challenge. If anyone on your team leaves, you forfeit this challenge.",
     tiers: {
       1: "6 heads in a row.",
       2: "8 heads in a row.",
@@ -51,8 +51,8 @@ window.CHALLENGES = {
     note: "Only one coin can be getting flipped at a time. Every flip must be a genuine flip that you are not trying to influence in any way. You may not do any research or use any tools other than what this challenge requires.",
   },
   "spring-hill": {
-    title: "Timed Hide and Seek",
-    intro: "A classic, with a twist: being found too early is just as bad as being found too late.",
+    title: "Hide and Seek",
+    intro: "I mean it's not Switzerland, but Roma Street is a nice place to play Hide and Seek.",
     description: "Go to one of the entrances of Roma Street Parklands. This whole challenge takes place inside the parklands and nobody on your team may leave until it is over. Choose one hider. Everyone else is a seeker. You may not discuss any strategy beforehand. Lock in your point attempt, then the hider uses a random number generator on their phone to secretly generate a target between 2 and 10 minutes. The hider then gets 10 minutes to hide. Everyone starts a 10 minute timer at the same moment, and the seekers wait at the entrance facing away from the park until it goes off. When it does, the seekers put their phones away and start seeking, and the hider starts a fresh timer to measure how long they take to be found. The seekers must find the hider as close to the secret target time as possible. Seekers may split up and search the park independently if they want to. The hider is found the moment any seeker first sees them, and that seeker must call it immediately.",
     tiers: {
       1: "Found within 2 minutes either side of the target.",
@@ -83,7 +83,7 @@ window.CHALLENGES = {
   },
   "the-valley": {
     title: "Solve a Sudoku",
-    intro: "Time to find out if your brain still works after a day of running around Brisbane.",
+    intro: "What's the one thing Fortitude Valley is known for? Sudoku.",
     description: "Acquire a paper copy of a sudoku and a pen. Solve the sudoku with the pen. You may not make any mistakes: if you write the wrong number in a square, you fail this challenge. You may make working markings.",
     tiers: {
       1: "Solve any sudoku.",
@@ -138,7 +138,7 @@ window.CHALLENGES = {
   },
   "east-brisbane-norman-park": {
     title: "Predict a Fill-Up",
-    intro: "How much petrol does a stranger need? Time to find out.",
+    intro: "How are the rising fuel prices affecting our common consumer?",
     description: "Go to a petrol station in this area and pick a driver who is about to start filling up. The driver must be a stranger and must be filling up a car (not a motorbike, truck or jerry can). You must lock in your driver (and your point attempt) before they start filling up and cannot change once they start. For a 1 point attempt, lock in a guess for how much petrol they put in after they have finished filling up. For a 2 or 3 point attempt, you must lock in your guess before they start filling up. You may not look at the pump display or the car's dashboard until your guess is locked in. Once you have locked in your guess, go to the pump and confirm the number. You may not practice, do any research or use any tools like a timer.",
     tiers: {
       1: "After they finish, guess a quantity in litres. Your guess must be within 30% of the actual amount on the pump to pass.",
@@ -149,7 +149,7 @@ window.CHALLENGES = {
   "milton-auchenflower": {
     title: "Count the Nerds",
     intro: "Nerds are taking over the world, let's keep a track of them.",
-    description: "Acquire some Nerds (the candy, specifically) and designate an eater. The eater must be blindfolded. Nobody can eat any Nerds before the attempt is started. Use a random number generator on your phone to generate a number from the range below (based on your chosen difficulty). The people preparing the Nerds must remove all clumps, so that only single Nerds are used. Feed that many Nerds to the eater, who cannot know the number. The Nerds must all be fed at the same time, not individually. The eater must then correctly guess the number of Nerds placed in their mouth.",
+    description: "Acquire some Nerds (the candy, specifically) and designate an eater. Nobody can eat any Nerds before the attempt is started. Blindfold the eater, and use a random number generator on your phone to generate a number from the range below (based on your chosen difficulty). The non-eaters should collect that number of nerds, removing any clumps. Feed that many Nerds to the eater, who cannot know the number. The Nerds must all be fed at the same time, not individually. The eater must then correctly guess the number of Nerds placed in their mouth.",
     tiers: {
       1: "Between 3 and 12 Nerds.",
       2: "Between 15 and 30 Nerds.",
